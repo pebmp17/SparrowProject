@@ -1,5 +1,5 @@
 # SparrowProject
-##Como testar essa ruma toda de arquivo:
+## Como testar essa ruma toda de arquivo:
 *Passo 1: Instalar Node.JS
 Entre no site no [node.js](https://nodejs.org/en/) e aperte onde tem escrito 8.algumacoisa. Em cima deve ter escrito "Download for Windows (x64)" (Esse mini tutorial também serve para Mac e Linux, mas se vc tá nesses sistemas operacionais vou assumir que vc sabe como se virar)
 *Passo 2: Instalar o Ionic
