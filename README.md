@@ -5,7 +5,7 @@
 
 ### Como testar o projeto: <a name="instalação"></a>
 - **Passo 1: Instale Node.JS**\
-Entre no site no [node.js](https://nodejs.org/en/) e baixe o relativo à versão 8.x. \ 
+Entre no site no [node.js](https://nodejs.org/en/) e baixe o relativo à versão 8.x.
 
 - **Passo 2: Instalar o Ionic**\
 Depois de instalado o Node.js você vai deve apertar Win-key+r. Nele, digite `cmd` e aperte enter. No cmd do windows, digite:\
