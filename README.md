@@ -15,7 +15,7 @@ Depois de instalado o Node.js você vai deve apertar Win-key+r. Nele, digite `cm
 Baixe os arquivos no botão verde e depois aperte em "Download Zip". Preferencialmente, coloque os arquivos em: C:/users/username.
 
 - **Passo 4: Testar**\
-Agora, dezipe o arquivo na própria pasta. Ele deve criar uma pasta chamada `master`. Abre o cmd *(mas se ainda tiver aberto é melhor ainda)* e digita:\
+Agora, dezipe o arquivo na própria pasta. Ele deve criar uma pasta chamada `master`. Abra o cmd e digite:\
 	`cd master`\
 E depois digite:\
 	`ionic serve`\
