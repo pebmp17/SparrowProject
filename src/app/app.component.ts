@@ -3,8 +3,10 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+//Lista para importar classes vindas dos arquivos .ts
 import { HomePage } from '../pages/home/home';
 import { SearchPage } from '../pages/searchTest/searchTest';
+import { CardsPage } from '../pages/cards/cards';
 import { ListPage } from '../pages/configs/configs';
 
 @Component({
@@ -20,10 +22,11 @@ export class MyApp {
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
-    // used for an example of ngFor and navigation
+    // Lista para navegação na side-menu
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Pesquisa', component: SearchPage },
+      { title: 'Cards', component: CardsPage },
       { title: 'Configurações', component: ListPage }
     ];
 

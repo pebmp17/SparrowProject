@@ -1,26 +1,42 @@
 # SparrowProject
-## Como testar essa ruma toda de arquivo:
-- **Passo 1: Instalar Node.JS**\
-Entre no site no [node.js](https://nodejs.org/en/) e aperte onde tem escrito 8.*algumacoisa*. Em cima deve ter escrito "Download for Windows (x64)" *(Esse mini tutorial também serve para Mac e Linux, mas se você tá nesses sistemas operacionais vou assumir que você sabe como se virar)*
+## Índice
+1. [Instalação](#instalação)
+2. [Criação de novas páginas](#newPage)
+
+### Como testar o projeto: <a name="instalação"></a>
+- **Passo 1: Instale Node.JS**\
+Entre no site no [node.js](https://nodejs.org/en/) e baixe o relativo à versão 8.x.\
 
 - **Passo 2: Instalar o Ionic**\
-Depois de instalado o Node.js *(Se vira aí pra instalar ele, tô com preguiça de remover tudo do meu e instalar de novo pra ver como é)*, você vai apertar Win-key *(aquela mesma, a da bandeirinha)* +r. Nele, digite `cmd` e aperte enter. No cmd do windows *(Sim, essa tela ai mesmo, calma que nada deu errado)*, digite:\
+Depois de instalado o Node.js você vai deve apertar Win-key+r. Nele, digite `cmd` e aperte enter. No cmd do windows, digite:\
    `npm install -g ionic`
 
-- **Passo 3** *(Sim, continuo com preguiça pra reinstalar pra ver direito como é)*: **Baixar esses arquivos aqui de cima**\
-Provevelmente você já baixou sem mandar. Fez isso mesmo né? Pois apaga, deixa de ser anarquista e só baixa quando eu mandar. Apagou? Ótimo, pois agora baixa, no botão verde *(Só tem um botão verde nessa página, pelo amor de deus, deixa de ser cego (caso seja daltônico ou realmente cego: foi mal aí))* e depois aperta no "Download Zip" *(ou seja lá qual for a linguagem que seu navegador estiver usando)*. Presta atenção onde você tá colocando esses arquivos na hora de baixar, porque dependendo de onde for vai dar um trabalho do caramba depois, minha recomendação: coloca na pasta C://users//seiláqualéoseuusuário.
+- **Passo 3 Baixar os arquivos do projeto**\
+Baixe os arquivos no botão verde e depois aperte em "Download Zip". Preferencialmente, coloque os arquivos em: C:/users/username.
 
-- **Passo 4: Dezipa o arquivo**\
-Só isso mesmo
-
-- **Passo 5: Para tudo o que estiver fazendo e vai beber um copo de água**\
-Ficar hidratado é sempre importante
-
-- **Passo 6: Testar**\
-Primeiro, se você realmente tá fazendo isso tudo pra testar, e não só dando uma olhado porque eu avisei que mexi umas coisas do repositório lá no trello *(olá David e Saymon)*, parabéns, você realmente não tem o que fazer. Vai fazer um relatório pra cibercultura ou seja lá o que estejam fazendo em autoração II *(Se seu nome for Joelma, ou principalmente Jolema, e você tiver vendo commits passados procurando sei lá o que, e achou que eu tô falando mal da cadeira nesse aqui, desculpa, só falei porque já fiz semestre passado e não sei como tá sendo agora. <3)*. Voltando pro que realmente importa, abre o cmd *(mas se ainda tiver aberto é melhor ainda)* e digita:\
+- **Passo 4: Testar**\
+Agora, dezipe o arquivo na própria pasta. Ele deve criar uma pasta chamada `master`. Abre o cmd *(mas se ainda tiver aberto é melhor ainda)* e digita:\
 	`cd master`\
-*(Tô assumindo que você colocou o arquivo master.zip onde eu recomendei, senão colocou lá desinstala e apaga tudo, e faz o tutorial todo de novo <sup>[1](#myfootnote1)</sup>)* E depois digita:\
+E depois digite:\
 	`ionic serve`\
-Agora o seu navegador padrão vai abrir (calma que não é virus, *ainda*) e você vai puder clicar nas coisas que podem ser clicadas. *(Se você tiver feito tudo o que foi escrito acima e não tiver dado certo a culpa é obviamente sua, porque sou o melhor programador que existe e nunca erro em nada que faço. Nunca que precisei de 8 commits pra acertar o markdown desse texto, nunca.)* E é isto.
+Agora o seu navegador padrão vai abrir e você poderá testa a aplicação.
 
-<a name="myfootnote1">1</a>: *(Na real, nem precisa é só mover o arquivo pra lá, só quero que você faça tudo de novo por você não fazer o que eu mando pra fazer. Desgraça de pseudo pré-adolescente rebelde)*
+### Como criar novas páginas: <a name="newPage"></a>
+- **Passo 1: Crie uma nova pasta**\
+Dentro de `src/pages` crie uma nova pasta. Essa pasta deve explicar a nova página, preferencialmente utilizando apenas uma palavra. Nesse tutorial iremos explicar utilizando a criação da página `exemplo`;
+
+- **Passo 2: Copie os arquivos de uma página já existente**\
+Como criar cada arquivo individualmente é bastante complexo, e as páginas existentes até agora no projeto estão bem simples, copie os arquivos da pasta `index`, e cole-os na pasta `exemplo`, conforme havia sido criada no passo anterior\
+
+- **Passo 3: Renome os arquivos**\
+Todos arquivos da pasta copiada possuem a nomenclatura `nomedapasta+extensão`. Renomeie todos os arquivos, para que eles agora sigam a nomenclatura `exemplo+extensão`.
+
+- **Passo 4: Edite os arquivos copiados**\
+Primeiramente, abra o arquivo `exemplo.ts` no seu editor de texto preferido. Nas linhas 4 substitua `page-home` por `page-exemplo`. Na linha 5, substitua `index.html` por `exemplo.html`.  Na linha 8, substitua `HomePage` por `ExemploPage`
+
+- **Passo 5: Edite os arquivos `app.component.ts` e `app.module.ts`**\
+Abre a pasta app. Nela, abra os arquivos `app.component.ts` e `app.module.ts`. Em ambos, insira a seguinte linha:\
+ `import { ExemploPage } from '../pages/exemplo/exemplo';` \
+ no fim da lista indicada pelo comentário "Lista para importar classes vindas dos arquivos .ts". Em `app.component.ts`, insira:\
+ `{ title: 'Exemplo', component: ExemploPage },`
+ dentro da lista indicada pelo comentário "Lista para navegação na side-menu". *ATENÇÂO: Caso você insira a página exemplo como último item da lista, lembre que os itens acima devem terminar com uma virgula, e remova a virgula do código acima.* Dentro de `app-module.ts`, insira `ExemploPage` dentros das 2 listas indicadas pelo comentário "Lista de páginas existentes no app"
