@@ -39,4 +39,4 @@ Abre a pasta app. Nela, abra os arquivos `app.component.ts` e `app.module.ts`. E
  `import { ExemploPage } from '../pages/exemplo/exemplo';` \
  no fim da lista indicada pelo comentário "Lista para importar classes vindas dos arquivos .ts". Em `app.component.ts`, insira:\
  `{ title: 'Exemplo', component: ExemploPage },`
- dentro da lista indicada pelo comentário "Lista para navegação na side-menu". *ATENÇÂO: Caso você insira a página exemplo como último item da lista, lembre que os itens acima devem terminar com uma virgula, e remova a virgula do código acima.* Dentro de `app-module.ts`, insira `ExemploPage` dentros das 2 listas indicadas pelo comentário "Lista de páginas existentes no app"
+ dentro da lista indicada pelo comentário "Lista para navegação na side-menu". *ATENÇÃO: Caso você insira a página exemplo como último item da lista, lembre que os itens acima devem terminar com uma virgula, e remova a virgula do código acima.* Dentro de `app-module.ts`, insira `ExemploPage` dentros das 2 listas indicadas pelo comentário "Lista de páginas existentes no app"
