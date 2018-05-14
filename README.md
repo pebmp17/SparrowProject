@@ -15,8 +15,8 @@ Depois de instalado o Node.js você vai deve apertar Win-key+r. Nele, digite `cm
 Baixe os arquivos no botão verde e depois aperte em "Download Zip". Preferencialmente, coloque os arquivos em: C:/users/username.
 
 - **Passo 4: Testar**\
-Agora, dezipe o arquivo na própria pasta. Ele deve criar uma pasta chamada `master`. Abra o cmd e digite:\
-	`cd master`\
+Agora, dezipe o arquivo na própria pasta. Ele deve criar uma pasta chamada `SparrowProject-master`. Abra o cmd e digite:\
+	`cd SparrowProject-master`\
 E depois digite:\
 	`ionic serve`\
 Agora o seu navegador padrão vai abrir e você poderá testa a aplicação.
