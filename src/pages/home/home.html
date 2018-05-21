@@ -8,19 +8,24 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-
-  <ion-item>
-    <ion-label floating>Username</ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>Password</ion-label>
-    <ion-input type="password"></ion-input>
-  </ion-item>
-
-</ion-list>
-  <button ion-button block>Logar</button>
-
+	<ion-card>
+		<ion-card-content >
+			<ion-slides paginationClickable=true
+ 				initialSlide=0
+ 				loop=true
+ 				autoplay=3200
+ 				speed=1500
+ 				#mySlider>
+				<ion-slide *ngFor="let item of banners">
+    			<img src="{{item.img}}">
+    			<ion-card-title>
+            		{{item.titulo}} 
+         		</ion-card-title>
+         		<h3>
+            		{{item.noticia}} 
+         		</h3>
+				</ion-slide>
+			</ion-slides>
+		</ion-card-content>
+	</ion-card>
 </ion-content>

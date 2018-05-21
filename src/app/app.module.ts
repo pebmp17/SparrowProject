@@ -5,7 +5,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 //Lista para importar classes vindas dos arquivos .ts
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { SearchPage } from '../pages/searchTest/searchTest';
+import { DonatePage } from '../pages/donate/donate';
+import { CaronasPage } from '../pages/caronas/caronas';
 import { CardsPage } from '../pages/cards/cards';
 import { ListPage } from '../pages/configs/configs';
 
@@ -18,7 +19,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   //Lista de páginas existentes no app
     MyApp,
     HomePage,
-    SearchPage,
+    DonatePage,
+    CaronasPage,
     CardsPage,
     ListPage
     
@@ -32,7 +34,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   //Lista de páginas existentes no app
     MyApp,
     HomePage,
-    SearchPage,
+    DonatePage,
+    CaronasPage,
     CardsPage,
     ListPage
     
