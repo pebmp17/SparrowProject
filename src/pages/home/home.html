@@ -1,15 +1,20 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>PetPet</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-	<ion-card>
-		<ion-card-content >
+	<ion-card color>
+		<ion-card-content>
 			<ion-slides paginationClickable=true
  				initialSlide=0
  				loop=true
@@ -18,10 +23,10 @@
  				#mySlider>
 				<ion-slide *ngFor="let item of banners">
     			<img src="{{item.img}}">
-    			<ion-card-title>
+    			<ion-card-title style="font-weight: bold;" color="dark">
             		{{item.titulo}} 
          		</ion-card-title>
-         		<h3>
+         		<h3 class="newsText">
             		{{item.noticia}} 
          		</h3>
 				</ion-slide>

@@ -14,19 +14,26 @@
 
 <ion-content padding>
 	<ion-card>
-  	<img src="assets/imgs/logo.png"/>
-  	<ion-fab right top>
-    	<button ion-fab>
-      		<ion-icon name="pin"></ion-icon>
-    	</button>
-  	</ion-fab>
+  	<div #map id="map"></div>
   	<ion-card-content>
     <ion-card-title>
       Abrigo São Lazaro
       </ion-card-title>
-    <p>
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    </p>
+    <ion-list>
+    <ion-item>
+      <ion-label>De onde?</ion-label>
+      <ion-input type="text" [(ngModel)]="originPosition"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Para onde?</ion-label>
+      <ion-input type="text" [(ngModel)]="destinationPosition"></ion-input>
+    </ion-item>
+
+    <div padding>
+      <button ion-button (click)="calculateRoute()">Traçar rota</button>
+    </div>
+  </ion-list>
   </ion-card-content>
   <ion-grid>
   <ion-row>

@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 //Lista para importar classes vindas dos arquivos .ts
 import { HomePage } from '../pages/home/home';
 import { DonatePage } from '../pages/donate/donate';
+import { VoluntariarPage } from '../pages/voluntariar/voluntariar';
 import { CaronasPage } from '../pages/caronas/caronas';
 import { CardsPage } from '../pages/cards/cards';
 import { ListPage } from '../pages/configs/configs';
@@ -27,6 +28,7 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Doar', component: DonatePage },
+      { title: 'Voluntariar', component: VoluntariarPage },
       { title: 'Caronas', component: CaronasPage },
       { title: 'Cards', component: CardsPage },
       { title: 'Configurações', component: ListPage }
