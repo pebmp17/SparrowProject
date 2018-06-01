@@ -1,13 +1,13 @@
 {
-  "name": "SPARROW Projetc",
-  "short_name": "SProject",
+  "name": "PetPet",
+  "short_name": "PetPet",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{
-    "src": "assets/imgs/logo.png",
+    "src": "assets/img/appicon.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "background_color": "#4e8ef7",
-  "theme_color": "#4e8ef7"
+  "background_color": "#387ef5",
+  "theme_color": "#387ef5"
 }
