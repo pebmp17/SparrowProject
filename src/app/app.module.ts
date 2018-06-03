@@ -1,15 +1,20 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule } from '@angular/http';
 import { NgModule, ErrorHandler } from '@angular/core';
-
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-
-import { InAppBrowser } from '@ionic-native/in-app-browser';
-import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { IonicStorageModule } from '@ionic/storage';
+import { BrowserModule } from '@angular/platform-browser';
 
 import { ConferenceApp } from './app.component';
+
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
+import { EmojiProvider } from '../providers/emoji';
+
+import { HttpClientModule } from "@angular/common/http";
+import { HttpModule } from '@angular/http';
+
+import { InAppBrowser } from '@ionic-native/in-app-browser';
+import { IonicStorageModule } from '@ionic/storage';
+import { ConferenceData } from '../providers/conference-data';
+import { UserData } from '../providers/user-data';
 
 import { CartilhaPage } from '../pages/cartilha/cartilha';
 import { SobrePage } from '../pages/sobre/sobre';
@@ -19,19 +24,14 @@ import { MapPage } from '../pages/map/map';
 import { VoluntarioPage } from '../pages/voluntario/voluntario';
 import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
-import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { DonatePage } from '../pages/doação/doação';
 import { ConversasPage } from '../pages/conversas/conversas';
-import { ChatPage } from '../pages/chat/chat';
+import { Chat } from '../pages/chat/chat';
 import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
-
-
-import { ConferenceData } from '../providers/conference-data';
-import { UserData } from '../providers/user-data';
 
 
 @NgModule({
@@ -46,18 +46,18 @@ import { UserData } from '../providers/user-data';
     DonatePage,
     ScheduleFilterPage,
     SessionDetailPage,
-    SignupPage,
     SpeakerDetailPage,
     HomePage,
     TabsPage,
     TutorialPage,
     ConversasPage,
     NotificacoesPage,
-    ChatPage
+    Chat
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs-page' },
@@ -73,12 +73,12 @@ import { UserData } from '../providers/user-data';
         { component: LoginPage, name: 'LoginPage', segment: 'login' },
         { component: AccountPage, name: 'AccountPage', segment: 'account' },
         { component: ConversasPage, name: 'Conversas', segment: 'conversas' },
-        { component: ChatPage, name: 'ChatPage', segment: 'chat' },
+        { component: Chat, name: 'Chat', segment: 'chat' },
         { component: NotificacoesPage, name: 'NotificacoesPage', segment: 'notificacoes' },
-        { component: SignupPage, name: 'SignupPage', segment: 'signup' },
         { component: SobrePage, name: 'SobrePage', segment: 'sobre' }
       ]
-    }),
+    }
+    ),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -92,7 +92,6 @@ import { UserData } from '../providers/user-data';
     DonatePage,
     ScheduleFilterPage,
     SessionDetailPage,
-    SignupPage,
     SpeakerDetailPage,
     HomePage,
     TabsPage,
@@ -100,14 +99,19 @@ import { UserData } from '../providers/user-data';
     ConversasPage,
     NotificacoesPage,
     SobrePage,
-    ChatPage
+    Chat
   ],
   providers: [
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
     ConferenceData,
     UserData,
+    StatusBar,
+    SplashScreen,
     InAppBrowser,
-    SplashScreen
+    HttpModule,
+    HttpClientModule,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    EmojiProvider,
+    
   ]
 })
 export class AppModule { }

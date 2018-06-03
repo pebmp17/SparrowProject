@@ -1,10 +1,25 @@
 <ion-header>
 	<ion-navbar>
-		<button ion-button menuToggle>
+		<button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
     </button>
-		<ion-title>Login</ion-title>
+	<ion-title *ngIf="segment === 'loginView'">
+	 <ion-icon tappable (click)="backToRoot()" name="arrow-back"></ion-icon>Login
+	</ion-title>
+	<ion-title *ngIf="segment === 'cadastrar'">
+	 <ion-icon tappable (click)="backToRoot()" name="arrow-back"></ion-icon>Cadastrar
+	</ion-title>
 	</ion-navbar>
+	<ion-navbar>
+			<ion-segment [(ngModel)]="segment">
+      			<ion-segment-button value="loginView">
+        			Login
+      			</ion-segment-button>
+      			<ion-segment-button value="cadastrar">
+        			Cadastrar
+      			</ion-segment-button>
+    		</ion-segment>
+    </ion-navbar>
 </ion-header>
 
 <ion-content>
@@ -23,6 +38,15 @@
 			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
 				Username is required
 			</p>
+			<ion-item>
+				<ion-label stacked color="primary">E-mail</ion-label>
+				<ion-input [(ngModel)]="login.username" name="email" type="text" #email="ngModel" spellcheck="false" autocapitalize="off"
+					required>
+				</ion-input>
+			</ion-item>
+			<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
+				email is required
+			</p>
 
 			<ion-item>
 				<ion-label stacked color="primary">Password</ion-label>
@@ -33,15 +57,8 @@
 				Password is required
 			</p>
 		</ion-list>
-
-		<ion-row responsive-sm>
-			<ion-col>
-				<button ion-button (click)="onLogin(loginForm)" type="submit" block>Login</button>
-			</ion-col>
-			<ion-col>
-				<button ion-button (click)="onSignup()" color="light" block>Signup</button>
-			</ion-col>
-		</ion-row>
+			<button ion-button (click)="onLogin(loginForm)" type="submit" round block *ngIf="segment === 'loginView'">Login</button>
+			<button ion-button (click)="onSignup()" color="light" round block *ngIf="segment === 'cadastrar'">Cadastrar</button>
 	</form>
 
 </ion-content>

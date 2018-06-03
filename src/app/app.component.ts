@@ -5,22 +5,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Storage } from '@ionic/storage';
 
-import { CartilhaPage } from '../pages/cartilha/cartilha';
 import { SobrePage } from '../pages/sobre/sobre';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
-import { MapPage } from '../pages/map/map';
-import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
-import { VoluntarioPage } from '../pages/voluntario/voluntario';
-import { DonatePage } from '../pages/doação/doação';
-import { HomePage } from '../pages/home/home';
 import { ConversasPage } from '../pages/conversas/conversas';
 import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
-import { ChatPage } from '../pages/chat/chat';
-
-
+import { Chat } from '../pages/chat/chat';
 
 import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
@@ -38,6 +30,7 @@ export interface PageInterface {
 
 @Component({
   templateUrl: 'app.template.html'
+  
 })
 export class ConferenceApp {
   // the root nav is a child of the root app component
