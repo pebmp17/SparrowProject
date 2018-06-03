@@ -161,7 +161,7 @@ export class DonatePage {
         refresher.complete();
 
         const toast = this.toastCtrl.create({
-          message: 'Sessions have been updated.',
+          message: 'As ofertas de voluntáriado foram atualizadas',
           duration: 3000
         });
         toast.present();

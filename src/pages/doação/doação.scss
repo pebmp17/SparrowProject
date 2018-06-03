@@ -15,6 +15,28 @@ $categories: (
   @return map-remove($categories);
 }
 
+ion-scroll[scrollX] {
+	height: 60px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    .scroll-item {
+      display: inline-block;
+    }
+
+    .selectable-icon{
+      margin: 10px 20px 10px 20px;
+      color: red;
+      font-size: 100px;
+    }
+    ::-webkit-scrollbar{
+    display:none;
+  }
+
+  }
+
+    
+
 page-schedule {
   @each $track, $value in auxiliary-categories() {
    ion-item-sliding[track=#{$track}] ion-label {

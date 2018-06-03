@@ -6,15 +6,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { Storage } from '@ionic/storage';
 
 import { CartilhaPage } from '../pages/cartilha/cartilha';
+import { SobrePage } from '../pages/sobre/sobre';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
 import { SignupPage } from '../pages/signup/signup';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
-import { SchedulePage } from '../pages/schedule/schedule';
+import { VoluntarioPage } from '../pages/voluntario/voluntario';
 import { DonatePage } from '../pages/doação/doação';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+import { HomePage } from '../pages/home/home';
 import { ConversasPage } from '../pages/conversas/conversas';
 import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
 import { ChatPage } from '../pages/chat/chat';
@@ -43,27 +44,23 @@ export class ConferenceApp {
   // @ViewChild(Nav) gets a reference to the app's root nav
   @ViewChild(Nav) nav: Nav;
 
-  // List of pages that can be navigated to from the left menu
-  // the left menu only works after login
-  // the login page disables the left menu
   appPages: PageInterface[] = [
-    { title: 'Home', name: 'TabsPage', component: TabsPage, tabComponent: SpeakerListPage, index: 0, icon: 'contacts' },
-    { title: 'Voluntário', name: 'TabsPage', component: TabsPage, tabComponent: SchedulePage, index: 1, icon: 'calendar' },
-    { title: 'Doação', name: 'TabsPage', component: TabsPage, tabComponent: DonatePage, index: 2, icon: 'calendar' },
-    { title: 'Pontos de coleta', name: 'TabsPage', component: TabsPage, tabComponent: MapPage, index: 3, icon: 'map' },
-    { title: 'Cartilha', name: 'TabsPage', component: TabsPage, tabComponent: CartilhaPage, index: 4, icon: 'information-circle' }
+    { title: 'Entre em contato', name: 'SobrePage', component: SobrePage, index: 0, icon: 'calendar' },
+    { title: 'Sobre', name: 'SobrePage', component: SobrePage, index: 1, icon: 'contacts' },
   ];
+
   loggedInPages: PageInterface[] = [
     { title: 'Conta', name: 'AccountPage', component: AccountPage, icon: 'person' },
-    { title: 'Conversas', name: 'ConversasPage', component: ConversasPage, icon: 'person' },
-    { title: 'Notificações', name: 'NotificacoesPage', component: NotificacoesPage, icon: 'person' },
+    { title: 'Conversas', name: 'ConversasPage', component: ConversasPage, icon: 'chatbubbles' },
+    { title: 'Notificações', name: 'NotificacoesPage', component: NotificacoesPage, icon: 'notifications' },
     { title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
-    { title: 'Logar', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
-    { title: 'Cadastrar', name: 'SignupPage', component: SignupPage, icon: 'person-add' }
+    { title: 'Logar/Cadastrar', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
   ];
+
   rootPage: any;
+  username: string;
 
   constructor(
     public events: Events,
@@ -75,7 +72,6 @@ export class ConferenceApp {
     public splashScreen: SplashScreen
   ) {
 
-    // Check if the user has already seen the tutorial
     this.storage.get('hasSeenTutorial')
       .then((hasSeenTutorial) => {
         if (hasSeenTutorial) {
@@ -86,10 +82,8 @@ export class ConferenceApp {
         this.platformReady()
       });
 
-    // load the conference data
     confData.load();
 
-    // decide which menu items should be hidden by current login status stored in local storage
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
       this.enableMenu(hasLoggedIn === true);
     });
@@ -121,7 +115,6 @@ export class ConferenceApp {
     }
 
     if (page.logsOut === true) {
-      // Give the menu time to close before changing to logged out
       this.userData.logout();
     }
   }

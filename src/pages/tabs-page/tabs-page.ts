@@ -4,8 +4,8 @@ import { NavParams } from 'ionic-angular';
 
 import { CartilhaPage } from '../cartilha/cartilha';
 import { MapPage } from '../map/map';
-import { SchedulePage } from '../schedule/schedule';
-import { SpeakerListPage } from '../speaker-list/speaker-list';
+import { VoluntarioPage } from '../voluntario/voluntario';
+import { HomePage } from '../home/home';
 import { DonatePage } from '../doação/doação';
 
 
@@ -14,8 +14,8 @@ import { DonatePage } from '../doação/doação';
 })
 export class TabsPage {
   // set the root pages for each tab
-  tab1Root: any = SpeakerListPage;
-  tab2Root: any = SchedulePage;
+  tab1Root: any = HomePage;
+  tab2Root: any = VoluntarioPage;
   tab3Root: any = DonatePage;
   tab4Root: any = MapPage;
   tab5Root: any = CartilhaPage;

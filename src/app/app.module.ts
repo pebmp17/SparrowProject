@@ -12,15 +12,16 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ConferenceApp } from './app.component';
 
 import { CartilhaPage } from '../pages/cartilha/cartilha';
+import { SobrePage } from '../pages/sobre/sobre';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
-import { SchedulePage } from '../pages/schedule/schedule';
+import { VoluntarioPage } from '../pages/voluntario/voluntario';
 import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
 import { SignupPage } from '../pages/signup/signup';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
-import { SpeakerListPage } from '../pages/speaker-list/speaker-list';
+import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { DonatePage } from '../pages/doação/doação';
@@ -37,16 +38,17 @@ import { UserData } from '../providers/user-data';
   declarations: [
     ConferenceApp,
     CartilhaPage,
+    SobrePage,
     AccountPage,
     LoginPage,
     MapPage,
-    SchedulePage,
+    VoluntarioPage,
     DonatePage,
     ScheduleFilterPage,
     SessionDetailPage,
     SignupPage,
     SpeakerDetailPage,
-    SpeakerListPage,
+    HomePage,
     TabsPage,
     TutorialPage,
     ConversasPage,
@@ -59,10 +61,10 @@ import { UserData } from '../providers/user-data';
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs-page' },
-        { component: SchedulePage, name: 'Voluntário', segment: 'schedule' },
+        { component: VoluntarioPage, name: 'Voluntário', segment: 'voluntario' },
         { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId' },
         { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
-        { component: SpeakerListPage, name: 'Home', segment: 'speakerList' },
+        { component: HomePage, name: 'HomePage', segment: 'HomePage' },
         { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:speakerId' },
         { component: MapPage, name: 'Pontos de coleta', segment: 'map' },
         { component: CartilhaPage, name: 'CartilhaPage', segment: 'cartilha' },
@@ -73,7 +75,8 @@ import { UserData } from '../providers/user-data';
         { component: ConversasPage, name: 'Conversas', segment: 'conversas' },
         { component: ChatPage, name: 'ChatPage', segment: 'chat' },
         { component: NotificacoesPage, name: 'NotificacoesPage', segment: 'notificacoes' },
-        { component: SignupPage, name: 'SignupPage', segment: 'signup' }
+        { component: SignupPage, name: 'SignupPage', segment: 'signup' },
+        { component: SobrePage, name: 'SobrePage', segment: 'sobre' }
       ]
     }),
     IonicStorageModule.forRoot()
@@ -85,17 +88,18 @@ import { UserData } from '../providers/user-data';
     AccountPage,
     LoginPage,
     MapPage,
-    SchedulePage,
+    VoluntarioPage,
     DonatePage,
     ScheduleFilterPage,
     SessionDetailPage,
     SignupPage,
     SpeakerDetailPage,
-    SpeakerListPage,
+    HomePage,
     TabsPage,
     TutorialPage,
     ConversasPage,
     NotificacoesPage,
+    SobrePage,
     ChatPage
   ],
   providers: [

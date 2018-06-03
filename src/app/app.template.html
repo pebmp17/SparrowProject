@@ -10,17 +10,6 @@
     </ion-header>
 
     <ion-content class="outer-content">
-
-      <ion-list>
-        <ion-list-header>
-          Navegação
-        </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
-          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-          {{p.title}}
-        </button>
-      </ion-list>
-
       <ion-list>
         <ion-list-header>
           Conta
@@ -32,16 +21,18 @@
       </ion-list>
 
       <ion-list>
-        <ion-list-header>
-          Tutorial
-        </ion-list-header>
+        <ion-item-divider color="secondary">
+        </ion-item-divider>
         <button ion-item menuClose (click)="openTutorial()">
           <ion-icon item-start name="hammer"></ion-icon>
           Mostrar Tutorial
         </button>
+        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
+        </button>
       </ion-list>
     </ion-content>
-
   </ion-menu>
 
   <!-- logged in menu -->
@@ -54,21 +45,11 @@
     </ion-header>
 
     <ion-content class="outer-content">
-
+       <div padding-top text-center>
+       <img style="border-radius: 50%" src="http://www.gravatar.com/avatar?d=mm&s=140" alt="avatar"/>
+        <h2>{{username}}</h2>
+      </div>
       <ion-list>
-        <ion-list-header>
-          Navegação
-        </ion-list-header>
-        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
-          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
-          {{p.title}}
-        </button>
-      </ion-list>
-
-      <ion-list>
-        <ion-list-header>
-          Conta
-        </ion-list-header>
         <button ion-item menuClose *ngFor="let p of loggedInPages" (click)="openPage(p)">
           <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
           {{p.title}}
@@ -76,15 +57,13 @@
       </ion-list>
 
       <ion-list>
-        <ion-list-header>
-          Tutorial
-        </ion-list-header>
-        <button ion-item menuClose (click)="openTutorial()">
-          <ion-icon item-start name="hammer"></ion-icon>
-          Mostrar Tutorial
+        <ion-item-divider color="secondary">
+        </ion-item-divider>
+        <button ion-item menuClose *ngFor="let p of appPages" (click)="openPage(p)">
+          <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+          {{p.title}}
         </button>
       </ion-list>
-
     </ion-content>
 
   </ion-menu>
