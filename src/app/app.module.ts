@@ -18,6 +18,7 @@ import { UserData } from '../providers/user-data';
 
 import { CartilhaPage } from '../pages/cartilha/cartilha';
 import { SobrePage } from '../pages/sobre/sobre';
+import { ContatoPage } from '../pages/contato/contato';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
@@ -39,6 +40,7 @@ import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
     ConferenceApp,
     CartilhaPage,
     SobrePage,
+    ContatoPage,
     AccountPage,
     LoginPage,
     MapPage,
@@ -75,7 +77,9 @@ import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
         { component: ConversasPage, name: 'Conversas', segment: 'conversas' },
         { component: Chat, name: 'Chat', segment: 'chat' },
         { component: NotificacoesPage, name: 'NotificacoesPage', segment: 'notificacoes' },
-        { component: SobrePage, name: 'SobrePage', segment: 'sobre' }
+        { component: SobrePage, name: 'SobrePage', segment: 'sobre' },
+        { component: ContatoPage, name: 'ContatoPage', segment: 'contato' }
+
       ]
     }
     ),
@@ -99,6 +103,7 @@ import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
     ConversasPage,
     NotificacoesPage,
     SobrePage,
+    ContatoPage,
     Chat
   ],
   providers: [

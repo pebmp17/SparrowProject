@@ -8,6 +8,11 @@
 </ion-header>
 
 <ion-content>
+  <ion-item-divider sticky color=secondary>
+    <ion-label>
+     <ion-icon name=information-circle></ion-icon> Iniciativas que você pode ajudar
+    </ion-label>
+  </ion-item-divider>
     <ion-item no-lines class="someDesgraça">
     <ion-scroll scrollX="true" swipe-horizontal>
       <button ion-button round class="scroll-item" color="primary">
@@ -34,9 +39,7 @@
       <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
 
         <button ion-item (click)="expandItem(item)" color="primary" class="roundCoisa">
-          <ion-avatar item-start>
-            <img src="../assets/img/chat/wendel.png">
-          </ion-avatar>
+            <ion-icon name="paw" item-start></ion-icon>
           <h3>{{session.name}}</h3>
           <p>
             {{session.timeStart}} &mdash;

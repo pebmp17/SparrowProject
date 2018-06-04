@@ -1,0 +1,35 @@
+<ion-header>
+
+	<ion-navbar>
+		<button ion-button menuToggle right>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+		<ion-title>		<ion-icon tappable (click)="backToRoot()" name="arrow-back"></ion-icon>
+Contato</ion-title>
+	</ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+	<div class="logo">
+		<img src="assets/img/logo_logo.png" alt="Ionic Logo" width="80%">
+	</div>
+
+	<form #submitForm="ngForm" novalidate (ngSubmit)="submit(submitForm)" class="someDesgraça">
+		<ion-list no-lines>
+			<ion-item class="someDesgraça">
+				<ion-label stacked color="light">Envie aqui sua sugestão</ion-label>
+				<ion-textarea [(ngModel)]="supportMessage" name="supportQuestion" #supportQuestion="ngModel" rows="6" required class="someDesgraça"></ion-textarea>
+			</ion-item>
+		</ion-list>
+
+		<p ion-text [hidden]="supportQuestion.valid || submitted === false" color="danger" padding-left>
+			Digite uma mensagem para nós
+		</p>
+
+		<div padding>
+			<button ion-button block type="submit">Enviar</button>
+		</div>
+	</form>
+</ion-content>

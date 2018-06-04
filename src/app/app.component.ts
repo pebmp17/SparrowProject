@@ -12,6 +12,7 @@ import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { ConversasPage } from '../pages/conversas/conversas';
 import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
+import { ContatoPage } from '../pages/contato/contato';
 import { Chat } from '../pages/chat/chat';
 
 import { ConferenceData } from '../providers/conference-data';
@@ -38,8 +39,8 @@ export class ConferenceApp {
   @ViewChild(Nav) nav: Nav;
 
   appPages: PageInterface[] = [
-    { title: 'Entre em contato', name: 'SobrePage', component: SobrePage, index: 0, icon: 'calendar' },
-    { title: 'Sobre', name: 'SobrePage', component: SobrePage, index: 1, icon: 'contacts' },
+    { title: 'Entre em contato', name: 'ContatoPage', component: ContatoPage, icon: 'at' },
+    { title: 'Sobre', name: 'SobrePage', component: SobrePage, icon: 'ribbon' },
   ];
 
   loggedInPages: PageInterface[] = [
@@ -70,7 +71,7 @@ export class ConferenceApp {
         if (hasSeenTutorial) {
           this.rootPage = TabsPage;
         } else {
-          this.rootPage = TutorialPage;
+          this.rootPage = LoginPage;
         }
         this.platformReady()
       });
@@ -88,20 +89,13 @@ export class ConferenceApp {
   openPage(page: PageInterface) {
     let params = {};
 
-    // the nav component was found using @ViewChild(Nav)
-    // setRoot on the nav to remove previous pages and only have this page
-    // we wouldn't want the back button to show in this scenario
     if (page.index) {
       params = { tabIndex: page.index };
     }
 
-    // If we are already on tabs just change the selected tab
-    // don't setRoot again, this maintains the history stack of the
-    // tabs even if changing them from the menu
     if (this.nav.getActiveChildNavs().length && page.index != undefined) {
       this.nav.getActiveChildNavs()[0].select(page.index);
     } else {
-      // Set the root of the nav with params if it's a tab index
       this.nav.setRoot(page.name, params).catch((err: any) => {
         console.log(`Didn't set nav root: ${err}`);
       });
@@ -144,8 +138,6 @@ export class ConferenceApp {
 
   isActive(page: PageInterface) {
     let childNav = this.nav.getActiveChildNavs()[0];
-
-    // Tabs are a special case because they have their own navigation
     if (childNav) {
       if (childNav.getSelected() && childNav.getSelected().root === page.tabComponent) {
         return 'primary';
