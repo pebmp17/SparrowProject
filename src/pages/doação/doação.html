@@ -9,9 +9,8 @@
 
 <ion-content>
   <ion-item-divider sticky color=secondary>
-    <ion-label>
-     <ion-icon name=information-circle></ion-icon> Iniciativas que você pode ajudar
-    </ion-label>
+    <ion-icon name=information-circle item-start></ion-icon>
+      Iniciativas que você pode ajudar
   </ion-item-divider>
     <ion-item no-lines class="someDesgraça">
     <ion-scroll scrollX="true" swipe-horizontal>
@@ -31,30 +30,49 @@
           Higiene
         </button>
     </ion-scroll>
+     <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
+      <ion-icon name="calendar" style="float: left"></ion-icon>
+      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+      <div class="eventTitle">3Kg de Ração para filhotes</div><br>
+      <p>Até dia 08/07</p>
+      <div class="info" text-wrap id="myDIV">
+        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis metus leo, auctor eget ullamcorper at, maximus et nisi. i</div>
+        <ion-avatar style="float: left">
+          <img src="../assets/img/sãolazaro.jpg">
+        </ion-avatar>
+        <h4 class="abrigoNome">Abrigo Auau</h4>
+        <button ion-button full round color="sucess" (click)="aparecerPopup()">Ajudar</button> 
+      </div>
     </ion-item>
-  <ion-list #scheduleList [hidden]="shownSessions === 0">
-
-    <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
-
-      <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
-
-        <button ion-item (click)="expandItem(item)" color="primary" class="roundCoisa">
-            <ion-icon name="paw" item-start></ion-icon>
-          <h3>{{session.name}}</h3>
-          <p>
-            {{session.timeStart}} &mdash;
-            {{session.timeEnd}}:
-            {{session.location}}
-          </p>
-            <ion-icon name="arrow-dropdown" item-end></ion-icon>
-        </button>
-      </ion-item-sliding>
-
-    </ion-item-group>
-
-  </ion-list>
-
-  <ion-list-header [hidden]="shownSessions > 0">
-      Dados não encontrados
-  </ion-list-header>
+   <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
+      <ion-icon name="medkit" style="float: left"></ion-icon>
+      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+      <div class="eventTitle">Medicamentos para filhotes</div><br>
+      <p>Até dia 28/06</p>
+  </ion-item>
+  <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
+      <ion-icon name="cash" style="float: left"></ion-icon>
+      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+      <div class="eventTitle">Doações Monetárias</div><br>
+      <p>Até dia 28/06</p>
+  </ion-item>
+    <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
+      <ion-icon name="medkit" style="float: left"></ion-icon>
+      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+      <div class="eventTitle">Medicamentos para filhotes</div><br>
+      <p>Até dia 28/06</p>
+  </ion-item>
+  <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
+      <ion-icon name="cash" style="float: left"></ion-icon>
+      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+      <div class="eventTitle">Doações Monetárias</div><br>
+      <p>Até dia 28/06</p>
+  </ion-item>
+    <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
+      <ion-icon name="medkit" style="float: left"></ion-icon>
+      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+      <div class="eventTitle">Medicamentos para filhotes</div><br>
+      <p>Até dia 28/06</p>
+  </ion-item>
+</ion-item>
 </ion-content>
