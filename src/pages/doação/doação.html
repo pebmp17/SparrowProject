@@ -5,50 +5,46 @@
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
-  <ion-toolbar>
-    <ion-searchbar color="primary"
-                   [(ngModel)]="queryText"
-                   (ionInput)="updateSchedule()"
-                   placeholder="Search">
-    </ion-searchbar>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
+    <ion-item no-lines class="someDesgraça">
+    <ion-scroll scrollX="true" swipe-horizontal>
+      <button ion-button round class="scroll-item" color="primary">
+          Todos
+        </button>
+        <button ion-button round class="scroll-item" color="primary">
+          Medicamento
+        </button>
+        <button ion-button round class="scroll-item" color="primary">
+          Alimento
+        </button>
+        <button ion-button round class="scroll-item" color="primary">
+          Equipamentos
+        </button>
+        <button ion-button round class="scroll-item" color="primary">
+          Higiene
+        </button>
+    </ion-scroll>
+    </ion-item>
   <ion-list #scheduleList [hidden]="shownSessions === 0">
 
     <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
 
-      <ion-item-divider sticky>
-        <ion-label>
-          {{group.time}}
-        </ion-label>
-      </ion-item-divider>
-
       <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
 
-        <button ion-item (click)="expandItem(item)">
+        <button ion-item (click)="expandItem(item)" color="primary" class="roundCoisa">
+          <ion-avatar item-start>
+            <img src="../assets/img/chat/wendel.png">
+          </ion-avatar>
           <h3>{{session.name}}</h3>
           <p>
             {{session.timeStart}} &mdash;
             {{session.timeEnd}}:
             {{session.location}}
           </p>
+            <ion-icon name="arrow-dropdown" item-end></ion-icon>
         </button>
-
-        <ion-item-options>
-          <button ion-button color="favorite" (click)="addFavorite(slidingItem, session)" *ngIf="segment === 'all'">
-            Favorite
-          </button>
-          <button ion-button color="danger" (click)="removeFavorite(slidingItem, session, 'Remove Favorite')" *ngIf="segment === 'favorites'">
-            Remove
-          </button>
-        </ion-item-options>
-
       </ion-item-sliding>
 
     </ion-item-group>
@@ -56,8 +52,6 @@
   </ion-list>
 
   <ion-list-header [hidden]="shownSessions > 0">
-      Sem dados encontrados
+      Dados não encontrados
   </ion-list-header>
-
-
 </ion-content>

@@ -24,10 +24,10 @@ export interface ActionSheetButton {
 };
 
 @Component({
-  selector: 'page-speaker-list',
-  templateUrl: 'speaker-list.html'
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
-export class SpeakerListPage {
+export class HomePage {
   actionSheet: ActionSheet;
   speakers: any[] = [];
 

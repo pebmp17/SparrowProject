@@ -1,15 +1,24 @@
 <ion-header>
 
 	<ion-navbar>
-		<button ion-button menuToggle right>
+	<ion-title>
+      <ion-icon tappable (click)="backToRoot()" name="arrow-back"></ion-icon>Conversas
+  </ion-title>
+    <button ion-button menuToggle right>
       <ion-icon name="menu"></ion-icon>
     </button>
-		<ion-title>Conversas</ion-title>
 	</ion-navbar>
 
 </ion-header>
-
-
 <ion-content>
-	
+	<ion-list>
+    <ion-item navPush="Chat"
+              [navParams]="toUser">
+      <ion-avatar item-left>
+        <img src="./assets/img/chat/to-user.jpg">
+      </ion-avatar>
+      <h2>Hancock</h2>
+      <p>If at first you don’t succeed, call it version 1.0</p>
+    </ion-item>
+  </ion-list>
 </ion-content>

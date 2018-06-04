@@ -9,11 +9,15 @@ import { UserData } from '../../providers/user-data';
   selector: 'page-account',
   templateUrl: 'account.html'
 })
+
 export class AccountPage {
   username: string;
-
   constructor(public alertCtrl: AlertController, public nav: NavController, public userData: UserData) {
 
+  }
+  
+  backToRoot() {
+    this.nav.setRoot('TabsPage')
   }
 
   ngAfterViewInit() {
@@ -68,4 +72,5 @@ export class AccountPage {
   support() {
     this.nav.push('SupportPage');
   }
+  
 }

@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   templateUrl: 'cartilha.html'
 })
 export class CartilhaPage {
-  conferenceDate = '2047-05-17';
 
   constructor() { }
 

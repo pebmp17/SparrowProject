@@ -16,10 +16,10 @@ import { ScheduleFilterPage } from '../schedule-filter/schedule-filter';
 
 
 @Component({
-  selector: 'page-schedule',
-  templateUrl: 'schedule.html'
+  selector: 'page-voluntario',
+  templateUrl: 'voluntario.html'
 })
-export class SchedulePage {
+export class VoluntarioPage {
   items: any = [];
   itemExpandHeight: number = 100;
   // the list is a child of the schedule page
