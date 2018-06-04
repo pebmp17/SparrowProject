@@ -1,47 +1,31 @@
-$categories: (
- ionic: color($colors, primary),
- angular: #AC282B,
- communication: #8E8D93,
- tooling: #FE4C52,
- services: #FD8B2D,
- design: #FED035,
- workshop: #69BB7B,
- food: #3BC7C4,
- documentation: #B16BE3,
- navigation: #6600CC,
-);
-
-@function auxiliary-categories() {
-  @return map-remove($categories);
-}
-
 ion-scroll[scrollX] {
-	height: 60px;
-    white-space: nowrap;
-    overflow: hidden;
+  height: 60px;
+  white-space: nowrap;
+  overflow: hidden;
 
-    .scroll-item {
-      display: inline-block;
-    }
-
-    .selectable-icon{
-      margin: 10px 20px 10px 20px;
-      color: red;
-      font-size: 100px;
-    }
-    ::-webkit-scrollbar{
+  .scroll-item {
+    display: inline-block;
+  }
+  ::-webkit-scrollbar{
     display:none;
   }
 
-  }
+}
 
-    
+.roundCoisa{
+  margin-bottom: 12px;
+  border-radius: 12px;
+}
 
-page-schedule {
-  @each $track, $value in auxiliary-categories() {
-   ion-item-sliding[track=#{$track}] ion-label {
-     border-left: 2px solid $value;
-     padding-left: 10px;
-   }
+
+.someDesgraça{
+background-color: rgba(0, 0, 0, 0);
+}
+
+page-donate {
+ 
+ ion-content{
+    background: url("../assets/img/background.png") repeat !important;
+
   }
 }

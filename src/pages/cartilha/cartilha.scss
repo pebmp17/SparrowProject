@@ -1,40 +1,24 @@
-.about-header {
-  background-color: #434954;
-  padding: 16px;
-  width: 100%;
-  min-height: 150px;
-  text-align: center;
-}
+page-cartilha{
+  ion-content{
+    background: url("../assets/img/background.png") repeat !important;
 
-.about-header img {
-  max-width: 200px;
-  min-height: 115px;
-  margin-left: -15px;
-  padding: 25px 0 20px 0;
-}
-
-.about-info p {
-  color: #697072;
-  text-align: left;
-}
-
-.about-info ion-icon {
-  color: color($colors, primary);
-  width: 20px;
-}
-
-.md,
-.wp {
-  .about-info [text-right] {
-    margin-right: 0;
   }
 }
 
-.ios .about-info {
-  text-align: center;
+ion-grid{
+  height: 60%;
 }
 
-.ios .about-info ion-icon {
-  width: auto;
-  margin-right: 10px;
+ion-col{
+  margin-left: 12px;
+}
+
+ion-row{
+  margin-bottom: 12px;
+  height: 50%;
+  background-color: #5daf88;
+}
+
+.someDesgraça{
+background-color: rgba(0, 0, 0, 0);
 }

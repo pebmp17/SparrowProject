@@ -1,14 +1,17 @@
+page-map{
+  ion-content{
+    background: url("../assets/img/background.png") repeat !important;
 
-page-map {
-  #map_canvas {
-    height: 500px;
-    width: 320px;
-    background-color : transparent;
   }
 }
 
-page-map ion-content {
-  background: rgb(229, 227, 223);
+.botaolista{
+  border-radius: 25px;
+  margin-bottom: 6px;
+}
+
+
+.map-page{
 }
 
 page-map #map_canvas {

@@ -38,15 +38,6 @@
 			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
 				Username is required
 			</p>
-			<ion-item>
-				<ion-label stacked color="primary">E-mail</ion-label>
-				<ion-input [(ngModel)]="login.username" name="email" type="text" #email="ngModel" spellcheck="false" autocapitalize="off"
-					required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
-				email is required
-			</p>
 
 			<ion-item>
 				<ion-label stacked color="primary">Password</ion-label>
@@ -57,8 +48,8 @@
 				Password is required
 			</p>
 		</ion-list>
-			<button ion-button (click)="onLogin(loginForm)" type="submit" round block *ngIf="segment === 'loginView'">Login</button>
-			<button ion-button (click)="onSignup()" color="light" round block *ngIf="segment === 'cadastrar'">Cadastrar</button>
+			<button ion-button (click)="onLogin(loginForm)" type="submit" round block *ngIf="segment === 'loginView'" color="secondary">Login</button>
+			<button ion-button (click)="onSignup()" color="light" round block *ngIf="segment === 'cadastrar'" color="secondary">Cadastrar</button>
 	</form>
 
 </ion-content>

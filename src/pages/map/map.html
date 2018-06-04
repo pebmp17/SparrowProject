@@ -1,69 +1,48 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle right>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Pontos de coleta</ion-title>
-  </ion-navbar>
+	<ion-navbar>
+		<button ion-button menuToggle right>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Mapa</ion-title>
+	</ion-navbar>
 </ion-header>
 
 <ion-content class="map-page">
-  <div style="height: 50%; width: 100%" #mapCanvas id="map_canvas"></div>
-   		<ion-list>
-		  	<ion-item>
-		    	<ion-avatar item-start>
-		      		<img src="../assets/img/appicon.png">
-		    	</ion-avatar>
-		    	<ion-icon name="arrow-dropdown" item-end>
-		    	</ion-icon>
-		    	<h2>Finn</h2>
-		    	<h3>Don't Know What To Do!</h3>
-		  </ion-item>
-		  <ion-item>
-		    	<ion-avatar item-start>
-		      		<img src="../assets/img/appicon.png">
-		    	</ion-avatar>
-		    	<ion-icon name="arrow-dropdown" item-end>
-		    	</ion-icon>
-		    	<h2>Finn</h2>
-		    	<h3>Don't Know What To Do!</h3>
-		  </ion-item>
-		  <ion-item>
-		    	<ion-avatar item-start>
-		      		<img src="../assets/img/appicon.png">
-		    	</ion-avatar>
-		    	<ion-icon name="arrow-dropdown" item-end>
-		    	</ion-icon>
-		    	<h2>Finn</h2>
-		    	<h3>Don't Know What To Do!</h3>
-		  </ion-item>
-		  <ion-item>
-		    	<ion-avatar item-start>
-		      		<img src="../assets/img/appicon.png">
-		    	</ion-avatar>
-		    	<ion-icon name="arrow-dropdown" item-end>
-		    	</ion-icon>
-		    	<h2>Finn</h2>
-		    	<h3>Don't Know What To Do!</h3>
-		  </ion-item>
-		  <ion-item>
-		    	<ion-avatar item-start>
-		      		<img src="../assets/img/appicon.png">
-		    	</ion-avatar>
-		    	<ion-icon name="arrow-dropdown" item-end>
-		    	</ion-icon>
-		    	<h2>Finn</h2>
-		    	<h3>Don't Know What To Do!</h3>
-		  </ion-item>
-		  <ion-item>
-		    	<ion-avatar item-start>
-		      		<img src="../assets/img/appicon.png">
-		    	</ion-avatar>
-		    	<ion-icon name="arrow-dropdown" item-end>
-		    	</ion-icon>
-		    	<h2>Finn</h2>
-		    	<h3>Don't Know What To Do!</h3>
-		 </ion-item>
-		</ion-list>
-	  
+	<div style="height: 50%; width: 100%" #mapCanvas id="map_canvas"></div>
+	<ion-item-divider sticky color=secondary>
+		<ion-label>
+			Postos de doação
+		</ion-label>
+	</ion-item-divider>
+	<ion-item no-lines (click)="showDiv()" color="primary" class="botaolista">
+			<ion-icon name="arrow-dropdown" item-end></ion-icon>
+			<ion-avatar item-start>
+				<img src="../assets/img/plaquinha.png">
+			</ion-avatar>
+			<h2>Finn</h2>
+			<h3>Don't Know What To Do!</h3>
+			<div class="info" id="myDIV">
+				<h4>Alguma coisa aqui</h4>
+				<ion-avatar style="float: right">
+					<img src="../assets/img/chat/wendel.png">
+				</ion-avatar>
+				<h4 style="float: right">Abrigo Auau</h4>
+			</div>
+	</ion-item>
+	<ion-item no-lines (click)="showDiv()" color="primary" class="botaolista">
+			<ion-icon name="arrow-dropdown" item-end></ion-icon>
+			<ion-avatar item-start>
+				<img src="../assets/img/plaquinha.png">
+			</ion-avatar>
+			<h2>Finn</h2>
+			<h3>Don't Know What To Do!</h3>
+	</ion-item>
+	<ion-item no-lines (click)="showDiv()" color="primary" class="botaolista">
+			<ion-icon name="arrow-dropdown" item-end></ion-icon>
+			<ion-avatar item-start>
+				<img src="../assets/img/plaquinha.png">
+			</ion-avatar>
+			<h2>Finn</h2>
+			<h3>Don't Know What To Do!</h3>
+	</ion-item>
 </ion-content>
