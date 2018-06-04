@@ -2,6 +2,10 @@
 // Login, Signup, Support
 
 page-user {
+ ion-content{
+    background: url("../assets/img/background_inicio.png") repeat !important;
+
+  }
   .logo {
     padding: 20px 0;
     min-height: 200px;
@@ -15,4 +19,14 @@ page-user {
   .list {
     margin-bottom: 0;
   }
+}
+
+#botãoPular{
+  text-align: center;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.someDesgraça{
+background-color: rgba(0, 0, 0, 0);
 }

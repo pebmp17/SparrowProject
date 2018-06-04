@@ -5,39 +5,29 @@
       <ion-icon name="menu"></ion-icon>
     </button>
   </ion-navbar>
-  <ion-toolbar>
-    <ion-searchbar color="primary"
-                   [(ngModel)]="queryText"
-                   (ionInput)="updateSchedule()"
-                   placeholder="Search">
-    </ion-searchbar>
-  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-refresher (ionRefresh)="doRefresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
+   <ion-item-divider sticky color=secondary>
+    <ion-label>
+     <ion-icon name=information-circle></ion-icon> Eventos que você pode participar
+    </ion-label>
+  </ion-item-divider>
   <ion-list #scheduleList [hidden]="shownSessions === 0">
 
     <ion-item-group *ngFor="let group of groups" [hidden]="group.hide">
 
-      <ion-item-divider sticky>
-        <ion-label>
-          {{group.time}}
-        </ion-label>
-      </ion-item-divider>
-
       <ion-item-sliding *ngFor="let session of group.sessions" #slidingItem [attr.track]="session.tracks[0] | lowercase" [hidden]="session.hide">
 
-        <button ion-item (click)="expandItem(item)" color="sucess">
+        <button ion-item (click)="expandItem(item)" color="primary" class="roundCoisa">
+           <ion-icon name="calendar" item-start></ion-icon>
           <h3>{{session.name}}</h3>
           <p>
             {{session.timeStart}} &mdash;
             {{session.timeEnd}}:
             {{session.location}}
           </p>
+            <ion-icon name="arrow-dropdown" item-end></ion-icon>
         </button>
       </ion-item-sliding>
 
@@ -48,6 +38,4 @@
   <ion-list-header [hidden]="shownSessions > 0">
       Dados não encontrados
   </ion-list-header>
-
-
 </ion-content>

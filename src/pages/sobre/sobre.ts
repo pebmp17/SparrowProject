@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { NavController} from 'ionic-angular';
+
 
 @Component({
   selector: 'page-sobre',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class SobrePage {
 
-  constructor() { }
+  constructor(public nav: NavController) {
 
+  }
+
+
+  backToRoot() {
+    this.nav.setRoot('TabsPage')
+  }  
 }

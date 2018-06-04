@@ -4,10 +4,10 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 	<ion-title *ngIf="segment === 'loginView'">
-	 <ion-icon tappable (click)="backToRoot()" name="arrow-back"></ion-icon>Login
+		Login
 	</ion-title>
 	<ion-title *ngIf="segment === 'cadastrar'">
-	 <ion-icon tappable (click)="backToRoot()" name="arrow-back"></ion-icon>Cadastrar
+		Cadastrar
 	</ion-title>
 	</ion-navbar>
 	<ion-navbar>
@@ -22,15 +22,15 @@
     </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content no-padding>
 	<div class="logo">
-		<img src="assets/img/appicon.svg" alt="Ionic logo">
+		<img src="assets/img/logo_logo.png" alt="Ionic logo">
 	</div>
 
 	<form #loginForm="ngForm" novalidate>
-		<ion-list no-lines>
-			<ion-item>
-				<ion-label stacked color="primary">Username</ion-label>
+		<ion-list no-lines class="someDesgraça">
+			<ion-item class="someDesgraça">
+				<ion-label color="light" class="someDesgraça">Username</ion-label>
 				<ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
 					required>
 				</ion-input>
@@ -39,8 +39,8 @@
 				Username is required
 			</p>
 
-			<ion-item>
-				<ion-label stacked color="primary">Password</ion-label>
+			<ion-item class="someDesgraça">
+				<ion-label color="light">Password</ion-label>
 				<ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
 				</ion-input>
 			</ion-item>
@@ -48,8 +48,13 @@
 				Password is required
 			</p>
 		</ion-list>
-			<button ion-button (click)="onLogin(loginForm)" type="submit" round block *ngIf="segment === 'loginView'" color="secondary">Login</button>
-			<button ion-button (click)="onSignup()" color="light" round block *ngIf="segment === 'cadastrar'" color="secondary">Cadastrar</button>
+		<ion-row>
+			<button ion-button (click)="onLogin(loginForm)" type="submit" round block *ngIf="segment === 'loginView'" color="sucess">Login</button>
+			<button ion-button (click)="onSignup()" color="light" round block *ngIf="segment === 'cadastrar'" color="sucess">Cadastrar</button>
+		</ion-row>
+		<ion-row>
+			<button ion-button (click)="backToRoot()" color="danger" round id="botãoPular">Pular</button>
+		</ion-row>
 	</form>
 
 </ion-content>

@@ -3,21 +3,28 @@ page-cartilha{
     background: url("../assets/img/background.png") repeat !important;
 
   }
+  ion-grid{
+    height: 60%;
+  }
+
+  ion-row{
+    background-color: #5daf88;
+    border-radius: 15px;
+    margin-bottom: 12px;
+    height: 50%;
+  }
 }
 
-ion-grid{
-  height: 60%;
+
+
+.goWhite{
+  color: #f1f1f1;
+}
+#test{
+  margin-left: 10px;
 }
 
-ion-col{
-  margin-left: 12px;
-}
 
-ion-row{
-  margin-bottom: 12px;
-  height: 50%;
-  background-color: #5daf88;
-}
 
 .someDesgraça{
 background-color: rgba(0, 0, 0, 0);

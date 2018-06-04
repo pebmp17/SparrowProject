@@ -9,7 +9,7 @@ import { NavController} from 'ionic-angular';
 })
 export class NotificacoesPage {
 
-  constructor(public nav: NavController,) {
+  constructor(public nav: NavController) {
 
   }
 
