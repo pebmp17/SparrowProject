@@ -1,4 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { NavController} from 'ionic-angular';
+
 
 @Component({
   selector: 'page-home',
@@ -6,7 +9,12 @@ import { Component, ViewChild } from '@angular/core';
 })
 export class HomePage {
 
-  constructor(
-  ) {}
+  constructor(public nav: NavController) {
 
+  }
+
+
+  backToRoot() {
+    this.nav.push('HomeDetalhesPage')
+  }  
 }

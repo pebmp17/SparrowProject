@@ -27,6 +27,7 @@ import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
 import { SessionDetailPage } from '../pages/session-detail/session-detail';
 import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { HomePage } from '../pages/home/home';
+import { HomeDetalhesPage } from '../pages/home-detalhes/home-detalhes';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { DonatePage } from '../pages/doação/doação';
@@ -50,6 +51,7 @@ import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
     SessionDetailPage,
     SpeakerDetailPage,
     HomePage,
+    HomeDetalhesPage,
     TabsPage,
     TutorialPage,
     ConversasPage,
@@ -67,6 +69,7 @@ import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
         { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId' },
         { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
         { component: HomePage, name: 'HomePage', segment: 'HomePage' },
+        { component: HomeDetalhesPage, name: 'HomeDetalhesPage', segment: 'HomeDetalhesPage' },
         { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:speakerId' },
         { component: MapPage, name: 'Pontos de coleta', segment: 'map' },
         { component: CartilhaPage, name: 'CartilhaPage', segment: 'cartilha' },
@@ -98,6 +101,7 @@ import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
     SessionDetailPage,
     SpeakerDetailPage,
     HomePage,
+    HomeDetalhesPage,
     TabsPage,
     TutorialPage,
     ConversasPage,
