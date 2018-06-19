@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Cadastre o seu pedido</ion-title>
+    <button ion-button menuToggle end>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding-left padding right>
+  <ion-list>
+    <ion-label>Título do pedido</ion-label>    
+    <ion-item>
+      <ion-input [(ngModel)]="pedidoDoar.titulo" name="pedidoTitulo" type="text" #pedidoTitulo="ngModel"required></ion-input>
+    </ion-item>
+    <ion-label>Descricao do pedido</ion-label>
+    <ion-item>
+      <ion-textarea [(ngModel)]="pedidoDoar.descricao" name="pedidoDescricao" #pedidoDescricao="ngModel" rows="2" required class="someDesgraça"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>Qual é o tipo de doação?</ion-label>
+      <ion-select [(ngModel)]="pedidoDoar.tipo">
+        <ion-option value="alimento">Alimentos</ion-option>
+        <ion-option value="financeira">Financeira</ion-option>
+        <ion-option value="higiene">Higiene</ion-option>
+        <ion-option value="medicamentos">Medicamentos</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-button full round color="danger" (click)="confirmRequest()">Confirmar</button> 
+  </ion-list>
+</ion-content>

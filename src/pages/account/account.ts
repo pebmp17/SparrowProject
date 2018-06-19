@@ -4,6 +4,9 @@ import { AlertController, NavController } from 'ionic-angular';
 
 import { UserData } from '../../providers/user-data';
 
+import * as firebase from 'firebase';
+
+
 
 @Component({
   selector: 'page-account',
@@ -11,9 +14,12 @@ import { UserData } from '../../providers/user-data';
 })
 
 export class AccountPage {
-  username: string;
-  constructor(public alertCtrl: AlertController, public nav: NavController, public userData: UserData) {
+  userAvatar: string;
+  userEmail: string;
+  userDisplayName: string;
+  userPassword: string;
 
+  constructor(public alertCtrl: AlertController, public nav: NavController, public userData: UserData) {
   }
   
   backToRoot() {
@@ -21,56 +27,109 @@ export class AccountPage {
   }
 
   ngAfterViewInit() {
-    this.getUsername();
+    this.getAvatar();
+    this.getDisplayName();
+    this.getEmail();
   }
 
   updatePicture() {
-    console.log('Clicked to update picture');
-  }
-
-  // Present an alert with the current username populated
-  // clicking OK will update the username and display it
-  // clicking Cancel will close the alert and do nothing
-  changeUsername() {
     let alert = this.alertCtrl.create({
-      title: 'Change Username',
+      title: 'Digite a url do avatar',
       buttons: [
-        'Cancel'
+      'Cancel'
       ]
     });
     alert.addInput({
-      name: 'username',
-      value: this.username,
-      placeholder: 'username'
+      name: 'avatar',
+      value: this.userAvatar,
+      placeholder: 'avatar'
     });
     alert.addButton({
       text: 'Ok',
       handler: (data: any) => {
-        this.userData.setUsername(data.username);
-        this.getUsername();
+        var user = firebase.auth().currentUser;
+        user.updateProfile({
+          displayName: this.userDisplayName,
+          photoURL: data.avatar
+        }).then(function() {
+        }).catch(function(error) {
+        });
       }
     });
-
+    alert.present();
+  }
+  
+  changeEmail() {
+    let alert = this.alertCtrl.create({
+      title: 'Mudar Email',
+      buttons: [
+      'Cancel'
+      ]
+    });
+    alert.addInput({
+      name: 'email',
+      value: this.userEmail,
+      placeholder: 'email'
+    });
+    alert.addButton({
+      text: 'Ok',
+      handler: (data: any) => {
+        var user = firebase.auth().currentUser;
+        user.updateEmail(data.email).then(function() {
+        })
+        this.getEmail();
+      }
+    });
     alert.present();
   }
 
-  getUsername() {
-    this.userData.getUsername().then((username) => {
-      this.username = username;
-    });
+  getEmail() {
+    var user = firebase.auth().currentUser;
+    if (user) {
+      if(user != null){
+        this.userEmail = user.email;
+      }
+    };
+  }
+
+  getDisplayName() {
+    var user = firebase.auth().currentUser;
+    if (user) {
+      if(user != null){
+        this.userDisplayName = user.displayName;
+      }
+    };
+  }
+
+  getAvatar() {
+    var user = firebase.auth().currentUser;
+    if (user) {
+      if(user != null){
+        this.userAvatar = user.photoURL;
+      }
+    };
   }
 
   changePassword() {
-    console.log('Clicked to change password');
+    let alert = this.alertCtrl.create({
+      title: 'Mudar Senha',
+      buttons: [
+      'Cancel'
+      ]
+    });
+    alert.addInput({
+      name: 'senha',
+      value: this.userPassword,
+      placeholder: 'senha'
+    });
+    alert.addButton({
+      text: 'Ok',
+      handler: (data: any) => {
+        var user = firebase.auth().currentUser;
+        user.updatePassword(data.senha).then(function() {
+        })
+      }
+    });
+    alert.present();
   }
-
-  logout() {
-    this.userData.logout();
-    this.nav.setRoot('LoginPage');
-  }
-
-  support() {
-    this.nav.push('SupportPage');
-  }
-  
 }

@@ -1,10 +1,16 @@
 page-voluntário {
- 	
+ 	ion-content{
+     background: url("../assets/img/background.png") repeat center center;
+  }
 }
 
 .eventTitle{
 		float: left;
 		padding-left: 8px;
+}
+
+.aviso{
+	margin-bottom: 8px;
 }
 
 .abrigoNome{

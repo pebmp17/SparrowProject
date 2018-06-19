@@ -17,7 +17,6 @@ ion-scroll[scrollX] {
   border-radius: 12px;
 }
 
-
 .someDesgraça{
 background-color: rgba(0, 0, 0, 0);
 }
@@ -25,7 +24,7 @@ background-color: rgba(0, 0, 0, 0);
 page-donate {
  
  ion-content{
-    background: url("../assets/img/background.png") repeat !important;
+    background: url("../assets/img/background.png") repeat center center;
 
   }
 }

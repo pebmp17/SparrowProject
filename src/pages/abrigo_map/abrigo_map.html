@@ -1,0 +1,37 @@
+<ion-header>
+	<ion-navbar color="secondary">
+		<button ion-button menuToggle right>
+			<ion-icon name="menu"></ion-icon>
+		</button>
+		<ion-title>Locais de Coleta</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="map-page">
+	<div style="height: 50%; width: 100%" #mapCanvas id="map_canvas"></div>
+	<ion-item-divider sticky color=danger>
+		<ion-icon name=information-circle item-start></ion-icon>
+		Cadastre seus postos de recebimento
+	</ion-item-divider>
+	<ion-list padding-left padding-right>
+		<ion-item no-lines (click)="showDiv()" color="secondary" class="roundCoisa">
+			<ion-avatar style="float: left">
+				<img src="../assets/img/plaquinha.png">
+			</ion-avatar>
+			<ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+			<div style="float: left;padding-top: 15;">Petshop para pets</div><br>
+			<p>Funciona das 08 às 20 horas</p>
+			<div class="info" text-wrap id="myDIV">
+				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis metus leo, auctor eget ullamcorper at, maximus et nisi. i</div>
+				<ion-avatar style="float: left">
+					<img src="../assets/img/sãolazaro.jpg">
+				</ion-avatar>
+				<h4 class="abrigoNome">Abrigo Auau</h4>
+				<button ion-button full round color="danger" (click)="aparecerPopup()">Editar</button> 
+			</div>
+		</ion-item>
+	</ion-list>
+	<ion-fab bottom right>
+		<button ion-fab color="danger"><ion-icon name="add"></ion-icon></button>
+	</ion-fab>
+</ion-content>

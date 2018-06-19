@@ -1,60 +1,47 @@
-<ion-header>
-	<ion-navbar>
-		<button ion-button menuToggle right>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-	<ion-title *ngIf="segment === 'loginView'">
-		Login
-	</ion-title>
-	<ion-title *ngIf="segment === 'cadastrar'">
-		Cadastrar
-	</ion-title>
-	</ion-navbar>
-	<ion-navbar>
-			<ion-segment [(ngModel)]="segment">
-      			<ion-segment-button value="loginView">
-        			Login
-      			</ion-segment-button>
-      			<ion-segment-button value="cadastrar">
-        			Cadastrar
-      			</ion-segment-button>
-    		</ion-segment>
-    </ion-navbar>
-</ion-header>
-
 <ion-content no-padding>
 	<div class="logo">
-		<img src="assets/img/logo_logo.png" alt="Ionic logo">
+		<img src="assets/img/logo_logo.png" alt="PetPet logo">
 	</div>
+	<ion-segment [(ngModel)]="segment">
+		<ion-segment-button value="loginView">
+			Login
+		</ion-segment-button>
+		<ion-segment-button value="cadastrar">
+			Cadastrar
+		</ion-segment-button>
+	</ion-segment>
 
 	<form #loginForm="ngForm" novalidate>
-		<ion-list no-lines class="someDesgraça">
-			<ion-item class="someDesgraça">
-				<ion-label color="light" class="someDesgraça">Username</ion-label>
-				<ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
-					required>
-				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="username.valid || submitted == false" color="danger" padding-left>
-				Username is required
-			</p>
+		<ion-list no-lines class="someDesgraça" id="formulario">
 
 			<ion-item class="someDesgraça">
-				<ion-label color="light">Password</ion-label>
-				<ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+				<ion-icon color="light" name="unlock"></ion-icon>
+				<ion-label color="light" class="someDesgraça">Email:</ion-label>
+				<ion-input [(ngModel)]="login.email" name="email" type="text" #email="ngModel" spellcheck="false" autocapitalize="off"
+				required>
 				</ion-input>
-			</ion-item>
-			<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
-				Password is required
-			</p>
-		</ion-list>
-		<ion-row>
-			<button ion-button (click)="onLogin(loginForm)" type="submit" round block *ngIf="segment === 'loginView'" color="sucess">Login</button>
-			<button ion-button (click)="onSignup()" color="light" round block *ngIf="segment === 'cadastrar'" color="sucess">Cadastrar</button>
-		</ion-row>
-		<ion-row>
-			<button ion-button (click)="backToRoot()" color="danger" round id="botãoPular">Pular</button>
-		</ion-row>
-	</form>
+		</ion-item>
+		<p ion-text [hidden]="email.valid || submitted == false" color="danger" padding-left>
+			Email é obrigatório
+		</p>
+
+		<ion-item class="someDesgraça">
+			<ion-icon name="unlock"></ion-icon>
+			<ion-label color="light">Senha:</ion-label>
+			<ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" required>
+			</ion-input>
+		</ion-item>
+		<p ion-text [hidden]="password.valid || submitted == false" color="danger" padding-left>
+			Senha é obrigatório
+		</p>
+	</ion-list>
+	<ion-row>
+		<button ion-button class="botaoConfirm" (click)="onLogin(loginForm)" type="submit" round *ngIf="segment === 'loginView'" color="sucess">Login</button>
+		<button ion-button class="botaoConfirm" (click)="onSignup(loginForm)" color="light" round *ngIf="segment === 'cadastrar'" color="sucess">Cadastrar</button>
+	</ion-row>
+	<ion-row>
+		<button ion-button (click)="backToRoot()" color="danger" round id="botãoPular">Pular</button>
+	</ion-row>
+</form>
 
 </ion-content>

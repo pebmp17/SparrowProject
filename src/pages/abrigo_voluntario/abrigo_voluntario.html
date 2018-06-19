@@ -1,0 +1,38 @@
+<ion-header >
+  <ion-navbar color=secondary>
+    <ion-title>Seus Eventos</ion-title>
+    <button end ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+ <ion-item-divider class="aviso" color=danger>
+  <ion-icon name=information-circle  item-start></ion-icon>
+  Gerencie seus eventos
+</ion-item-divider>
+<ion-list padding-left padding-right *ngFor="let pedido of requests">
+  <ion-item no-lines color="secondary" class="roundCoisa" *ngIf="pedido.createdBy===userDisplayName">
+    <ion-icon name="calendar" style="float: left"></ion-icon>
+    <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+    <div class="eventTitle">{{pedido.titulo}}</div><br>
+    <p>Dia {{pedido.data}} das {{pedido.horarioInicio}} às {{pedido.horarioFim}} horas</p>
+    <ion-col tappable >
+      <span class="volunteerNumber"style="float: right">{{pedido.participantes}}</span>  
+      <ion-icon class="volunteerIcon" name="people" style="float: right"></ion-icon>
+    </ion-col>
+    <div class="info" text-wrap id="myDIV">
+      <div>{{pedido.descricao}}</div>
+      <ion-avatar style="float: left">
+        <img src="{{pedido.avatar}}">
+      </ion-avatar>
+      <h4 class="abrigoNome">{{pedido.createdBy}}</h4>
+      <button ion-button full round color="danger" (click)="aparecerPopup()">Editar</button> 
+    </div>
+  </ion-item>
+</ion-list>
+<ion-fab bottom right>
+   <button ion-fab color="danger" (click)="goToCreate()"><ion-icon name="add"></ion-icon></button>
+ </ion-fab>
+</ion-content>

@@ -17,7 +17,7 @@ export class ContatoPage {
     public navCtrl: NavController,
     public alertCtrl: AlertController,
     public toastCtrl: ToastController
-  ) {
+    ) {
 
   }
 
@@ -55,7 +55,7 @@ export class ContatoPage {
       alert.present();
     });
   }
-   backToRoot() {
+  backToRoot() {
     this.navCtrl.setRoot('TabsPage')
   }  
 }

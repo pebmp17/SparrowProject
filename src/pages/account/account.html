@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title>
       <ion-icon tappable (click)="backToRoot()" name="arrow-back"></ion-icon>Account</ion-title>
     <button ion-button menuToggle right>
@@ -9,15 +9,14 @@
 </ion-header>
 
 <ion-content class="outer-content">
-  <div padding-top text-center *ngIf="username">
-    <img src="http://www.gravatar.com/avatar?d=mm&s=140" alt="avatar">
-    <h2>{{username}}</h2>
-
+  <div padding-top text-center>
+    <img src="{{userAvatar}}" alt="avatar">
+    <h2>{{userDisplayName}}</h2>
+    <h4>{{userEmail}}</h4>
     <ion-list inset>
-      <button ion-item (click)="updatePicture()">Update Picture</button>
-      <button ion-item (click)="changeUsername()">Change Username</button>
-      <button ion-item (click)="changePassword()">Change Password</button>
-      <button ion-item (click)="logout()">Logout</button>
+      <button ion-item (click)="updatePicture()">Mudar avatar</button>
+      <button ion-item (click)="changeEmail()">Mudar email</button>
+      <button ion-item (click)="changePassword()">Mudar senha</button>
     </ion-list>
   </div>
 </ion-content>

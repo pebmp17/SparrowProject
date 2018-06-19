@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar no-border-bottom>
-      <ion-title>Voluntário</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Voluntário</ion-title>
     <button end ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,78 +8,28 @@
 </ion-header>
 
 <ion-content>
-   <ion-item-divider sticky color=secondary>
-    <ion-icon name=information-circle item-start></ion-icon>
-      Eventos que você pode participar
-  </ion-item-divider>
-  <ion-item>
-  <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="calendar" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Cãominhada</div><br>
-      <p>Dia 04/06 das 18 às 20 horas</p>
-      <ion-col tappable >
-            <span class="volunteerNumber"style="float: right">999</span>  
-            <ion-icon class="volunteerIcon" name="people" style="float: right"></ion-icon>
-      </ion-col>
-      <div class="info" text-wrap id="myDIV">
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis metus leo, auctor eget ullamcorper at, maximus et nisi. i</div>
-        <ion-avatar style="float: left">
-          <img src="../assets/img/sãolazaro.jpg">
-        </ion-avatar>
-        <h4 class="abrigoNome">Abrigo Auau</h4>
-        <button ion-button full round color="sucess" (click)="aparecerPopup()">Participar</button> 
-      </div>
+ <ion-item-divider class="aviso" color=danger>
+  <ion-icon name=information-circle item-start></ion-icon>
+  Eventos que você pode participar
+</ion-item-divider>
+<ion-list padding-left padding-right >
+  <ion-item no-lines color="secondary" class="roundCoisa" *ngFor="let pedido of requests">
+    <ion-icon name="calendar" style="float: left"></ion-icon>
+    <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+    <div class="eventTitle">{{pedido.titulo}}</div><br>
+    <p>Dia {{pedido.data}} das {{pedido.horarioInicio}} às {{pedido.horarioFim}} horas</p>
+    <ion-col tappable >
+      <span class="volunteerNumber"style="float: right">{{pedido.participantes}}</span>  
+      <ion-icon class="volunteerIcon" name="people" style="float: right"></ion-icon>
+    </ion-col>
+    <div class="info" text-wrap id="myDIV">
+      <div>{{pedido.descricao}}</div>
+      <ion-avatar style="float: left">
+        <img src="{{pedido.avatar}}">
+      </ion-avatar>
+      <h4 class="abrigoNome">{{pedido.createdBy}}</h4>
+      <button ion-button full round color="danger" (click)="aparecerPopup()">Participar</button> 
+    </div>
   </ion-item>
-   <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="calendar" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Cãominhada</div><br>
-      <p>Dia 04/06 das 18 às 20 horas</p>
-      <ion-col tappable >
-            <span class="volunteerNumber"style="float: right">999</span>  
-            <ion-icon class="volunteerIcon" name="people" style="float: right"></ion-icon>
-      </ion-col>
-  </ion-item>
-  <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="calendar" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Cãominhada</div><br>
-      <p>Dia 04/06 das 18 às 20 horas</p>
-      <ion-col tappable >
-            <span class="volunteerNumber"style="float: right">999</span>  
-            <ion-icon class="volunteerIcon" name="people" style="float: right"></ion-icon>
-      </ion-col>
-  </ion-item>
-  <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="calendar" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Cãominhada</div><br>
-      <p>Dia 04/06 das 18 às 20 horas</p>
-      <ion-col tappable >
-            <span class="volunteerNumber"style="float: right">999</span>  
-            <ion-icon class="volunteerIcon" name="people" style="float: right"></ion-icon>
-      </ion-col>
-  </ion-item>
-  <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="calendar" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Cãominhada</div><br>
-      <p>Dia 04/06 das 18 às 20 horas</p>
-      <ion-col tappable >
-            <span class="volunteerNumber"style="float: right">999</span>  
-            <ion-icon class="volunteerIcon" name="people" style="float: right"></ion-icon>
-      </ion-col>
-  </ion-item>
-  <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="calendar" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Cãominhada</div><br>
-      <p>Dia 04/06 das 18 às 20 horas</p>
-      <ion-col tappable >
-            <span class="volunteerNumber"style="float: right">999</span>  
-            <ion-icon class="volunteerIcon" name="people" style="float: right"></ion-icon>
-      </ion-col>
-  </ion-item>
-</ion-item>
+</ion-list>
 </ion-content>

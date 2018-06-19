@@ -1,7 +1,6 @@
 page-map{
   ion-content{
-    background: url("../assets/img/background.png") repeat !important;
-
+    background: url("../assets/img/background.png") repeat center center;
   }
 }
 
@@ -13,6 +12,11 @@ page-map{
 
 .map-page{
 }
+
+.aviso{
+  margin-bottom: 8px;
+}
+
 
 page-map #map_canvas {
   width: 100%;

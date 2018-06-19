@@ -1,5 +1,5 @@
 <ion-header>
-	<ion-navbar>
+	<ion-navbar color="secondary">
 		<button ion-button menuToggle right>
 			<ion-icon name="menu"></ion-icon>
 		</button>
@@ -9,12 +9,12 @@
 
 <ion-content class="map-page">
 	<div style="height: 50%; width: 100%" #mapCanvas id="map_canvas"></div>
-	<ion-item-divider sticky color=secondary>
+	<ion-item-divider class="aviso" color="danger">
 		<ion-icon name=information-circle item-start></ion-icon>
 		Postos de doação
 	</ion-item-divider>
-	<ion-item>
-	<ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
+	<ion-list padding-left padding-right>
+		<ion-item no-lines (click)="showDiv()" color="secondary" class="roundCoisa">
 			<ion-avatar style="float: left">
 				<img src="../assets/img/plaquinha.png">
 			</ion-avatar>
@@ -29,21 +29,5 @@
 				<h4 class="abrigoNome">Abrigo Auau</h4>
 			</div>
 		</ion-item>
-		<ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-			<ion-avatar style="float: left">
-				<img src="../assets/img/plaquinha.png">
-			</ion-avatar>
-			<ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-			<div style="float: left;padding-top: 15;">Abrigo São Lazaro</div><br>
-			<p>Funciona das 08 às 20 horas</p>
-		</ion-item>
-		<ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-			<ion-avatar style="float: left">
-				<img src="../assets/img/plaquinha.png">
-			</ion-avatar>
-			<ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-			<div style="float: left;padding-top: 15;">Abrigo Arca de Noé</div><br>
-			<p>Funciona das 08 às 20 horas</p>
-		</ion-item>
-	</ion-item>
+	</ion-list>
 </ion-content>

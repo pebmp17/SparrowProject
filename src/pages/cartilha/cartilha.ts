@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { NavController} from 'ionic-angular';
+
 
 @Component({
   selector: 'page-cartilha',
@@ -7,6 +9,12 @@ import { Component } from '@angular/core';
 })
 export class CartilhaPage {
 
-  constructor() { }
+  constructor(public nav: NavController) {
 
+  }
+
+
+  backToRoot() {
+    this.nav.push('CartilhaDetalhesPage')
+  }  
 }

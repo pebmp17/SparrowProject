@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Seus pedidos de doação</ion-title>
+    <button end ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider sticky class="aviso" color=danger>
+    <ion-icon name=information-circle item-start></ion-icon>
+    Gerencie seus pedidos de doação
+  </ion-item-divider>
+  <ion-list padding-left padding-right *ngFor="let pedido of requests">
+   <ion-item no-lines color="secondary" class="roundCoisa"  no-lines *ngIf="pedido.createdBy===userDisplayName">
+      <ion-icon name="paw" style="float: left" *ngIf="pedido.tipo === 'alimento'"></ion-icon>
+      <ion-icon name="cash" style="float: left" *ngIf="pedido.tipo === 'financeira'"></ion-icon>
+      <ion-icon name="medkit" style="float: left" *ngIf="pedido.tipo === 'medicamentos'"></ion-icon>
+      <ion-icon name="basket" style="float: left" *ngIf="pedido.tipo === 'higiene'"></ion-icon>
+      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+      <div class="eventTitle">{{pedido.titulo}}</div><br>
+      <p>Até dia 08/07</p>
+      <div class="info" text-wrap>
+        <div>{{pedido.descricao}}</div>
+        <ion-avatar style="float: left">
+          <img src="{{pedido.avatar}}">
+        </ion-avatar>
+        <h4 class="abrigoNome">{{pedido.createdBy}}</h4>
+        <button ion-button full round color="danger" (click)="aparecerPopup()">Editar</button> 
+      </div>
+    </ion-item>
+  </ion-list>
+  <ion-fab bottom right>
+    <button ion-fab color="danger" (click)="goToCreate()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+</ion-content>

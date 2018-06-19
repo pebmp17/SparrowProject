@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Cadastre o seu evento</ion-title>
+    <button ion-button menuToggle end>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding-left padding right>
+  <ion-list>
+    <ion-label>Título do evento</ion-label>    
+    <ion-item>
+      <ion-input [(ngModel)]="pedidoEvento.titulo" name="pedidoTitulo" type="text" #pedidoTitulo="ngModel"required></ion-input>
+    </ion-item>
+    <ion-label>Descricao do evento</ion-label>
+    <ion-item>
+      <ion-textarea [(ngModel)]="pedidoEvento.descricao" name="pedidoDescricao" #pedidoDescricaosupportQuestion="ngModel" rows="2" required class="someDesgraça"></ion-textarea>
+    </ion-item>
+        <ion-label style="color: black">Data do evento</ion-label>
+
+    <ion-item>
+      <ion-input [(ngModel)]="pedidoEvento.data" name="pedidodata" type="text" #pedidoData="ngModel"required></ion-input>
+    </ion-item>
+          <ion-label style="color: black">Horário</ion-label>
+    <ion-item>
+      <ion-label style="color: black">De</ion-label>
+      <ion-input [(ngModel)]="pedidoEvento.horarioInicio" name="pedidoInicio" type="text" #pedidoInicio="ngModel"required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label style="color: black">até </ion-label>
+      <ion-input [(ngModel)]="pedidoEvento.horarioFim" name="pedidoFim" type="text" #pedidoFim="ngModel"required></ion-input>
+    </ion-item>
+    <button ion-button full round color="danger" (click)="confirmRequest()">Confirmar</button> 
+  </ion-list>
+</ion-content>

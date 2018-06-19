@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-navbar no-border-bottom>
-      <ion-title>Doação</ion-title>
+  <ion-navbar color="secondary">
+    <ion-title>Doação</ion-title>
     <button end ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,71 +8,46 @@
 </ion-header>
 
 <ion-content>
-  <ion-item-divider sticky color=secondary>
+  <ion-item-divider class="aviso" color=danger>
     <ion-icon name=information-circle item-start></ion-icon>
-      Iniciativas que você pode ajudar
+    Iniciativas que você pode ajudar
   </ion-item-divider>
-    <ion-item no-lines class="someDesgraça">
+  <ion-item no-lines class="someDesgraça">
     <ion-scroll scrollX="true" swipe-horizontal>
-      <button ion-button round class="scroll-item" color="primary">
-          Todos
-        </button>
-        <button ion-button round class="scroll-item" color="primary">
-          Medicamento
-        </button>
-        <button ion-button round class="scroll-item" color="primary">
-          Alimento
-        </button>
-        <button ion-button round class="scroll-item" color="primary">
-          Equipamentos
-        </button>
-        <button ion-button round class="scroll-item" color="primary">
-          Higiene
-        </button>
+      <button ion-button round class="scroll-item" color="secondary">
+        Todos
+      </button>
+      <button ion-button round class="scroll-item" color="secondary">
+        Medicamento
+      </button>
+      <button ion-button round class="scroll-item" color="secondary">
+        Alimento
+      </button>
+      <button ion-button round class="scroll-item" color="secondary">
+        Equipamentos
+      </button>
+      <button ion-button round class="scroll-item" color="secondary">
+        Higiene
+      </button>
     </ion-scroll>
-     <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="calendar" style="float: left"></ion-icon>
+  </ion-item>
+  <ion-list padding-left padding-right >
+    <ion-item no-lines color="secondary" class="roundCoisa" *ngFor="let pedido of requests" no-lines>
+      <ion-icon name="paw" style="float: left" *ngIf="pedido.tipo === 'alimento'"></ion-icon>
+      <ion-icon name="cash" style="float: left" *ngIf="pedido.tipo === 'financeira'"></ion-icon>
+      <ion-icon name="medkit" style="float: left" *ngIf="pedido.tipo === 'medicamentos'"></ion-icon>
+      <ion-icon name="basket" style="float: left" *ngIf="pedido.tipo === 'higiene'"></ion-icon>
       <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">3Kg de Ração para filhotes</div><br>
+      <div class="eventTitle">{{pedido.titulo}}</div><br>
       <p>Até dia 08/07</p>
-      <div class="info" text-wrap id="myDIV">
-        <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis metus leo, auctor eget ullamcorper at, maximus et nisi. i</div>
+      <div class="info" text-wrap>
+        <div>{{pedido.descricao}}</div>
         <ion-avatar style="float: left">
-          <img src="../assets/img/sãolazaro.jpg">
+          <img src="{{pedido.avatar}}">
         </ion-avatar>
-        <h4 class="abrigoNome">Abrigo Auau</h4>
-        <button ion-button full round color="sucess" (click)="aparecerPopup()">Ajudar</button> 
+        <h4 class="abrigoNome">{{pedido.createdBy}}</h4>
+        <button ion-button full round color="danger" (click)="aparecerPopup()">Ajudar</button> 
       </div>
     </ion-item>
-   <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="medkit" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Medicamentos para filhotes</div><br>
-      <p>Até dia 28/06</p>
-  </ion-item>
-  <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="cash" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Doações Monetárias</div><br>
-      <p>Até dia 28/06</p>
-  </ion-item>
-    <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="medkit" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Medicamentos para filhotes</div><br>
-      <p>Até dia 28/06</p>
-  </ion-item>
-  <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="cash" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Doações Monetárias</div><br>
-      <p>Até dia 28/06</p>
-  </ion-item>
-    <ion-item no-lines (click)="showDiv()" color="primary" class="roundCoisa">
-      <ion-icon name="medkit" style="float: left"></ion-icon>
-      <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-      <div class="eventTitle">Medicamentos para filhotes</div><br>
-      <p>Até dia 28/06</p>
-  </ion-item>
-</ion-item>
+  </ion-list>
 </ion-content>

@@ -1,0 +1,60 @@
+page-cartilha{
+  ion-content{
+    background: url("../assets/img/background.png") repeat !important;
+  }
+
+  #cartilha1{
+    border-radius: 10px;
+    color: white;
+    padding-top: 2%;
+    padding-left: 2%;
+    margin-left: 8%;
+    margin-top: 4%;
+    float: left;
+    width: 40%;
+    height: 23%;
+    background-color: #fe4d3c;
+  }
+
+  #cartilha2{
+    border-radius: 10px;
+    color: white;
+    padding-top: 2%;
+    padding-left: 2%;
+    margin-right: 8%;
+    margin-top: 4%;
+    float: right;
+    width: 40%;
+    height: 23%;
+    background-color: #7ac9a5;
+  }
+
+  #cartilha3{
+    border-radius: 10px;
+    color: white;
+    padding-top: 2%;
+    padding-left: 2%;
+    margin-left: 8%;
+    margin-top: 4%;
+    float: left;
+    width: 40%;
+    height: 23%;
+    background-color: #83c5e7;
+  }
+
+  #cartilha4{
+    border-radius: 10px;
+    color: white;
+    padding-top: 2%;
+    padding-left: 2%;
+    margin-right: 8%;
+    margin-top: 4%;
+    float: right;
+    width: 40%;
+    height: 23%;
+    background-color: #0a6b92;
+  }
+  #test{
+    margin-left: 10px;
+  }
+}

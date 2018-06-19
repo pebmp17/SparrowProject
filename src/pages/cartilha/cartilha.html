@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="secondary">
     <ion-title>Cartilha Informativa</ion-title>
     <button ion-button menuToggle end>
       <ion-icon name="menu"></ion-icon>
@@ -8,35 +8,8 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid style="height: 50%">
-    <ion-row>
-      <ion-col>
-       <div class="goWhite">Como Ajudar</div> 
-      </ion-col>
-      <ion-col>
-        <div class="goWhite">Como Ajudar</div> 
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <div class="goWhite">Como Ajudar</div> 
-      </ion-col>
-       <ion-col>
-        <div class="goWhite"  id="test">Como Ajudar</div> 
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
- <ion-item class="someDesgraça">
-   Lorem ipsum dolor sit amet
- </ion-item>
- <ion-item class="someDesgraça">
-    Lorem ipsum dolor sit amet
- </ion-item>
- <ion-item class="someDesgraça">
-    Lorem ipsum dolor sit amet
- </ion-item>
-  <ion-item class="someDesgraça">
-    Lorem ipsum dolor sit amet
- </ion-item>
+    <div id="cartilha1" tappable (click)="backToRoot()">Como Ajudar<img src="./assets/img/como_ajudar.png" height="64px"/></div>
+    <div id="cartilha2" tappable (click)="backToRoot()">Como cuidar<img src="./assets/img/como_cuidar.png" height="64px"/></div>
+    <div id="cartilha3" tappable (click)="backToRoot()">Seja um abrigo<img src="./assets/img/Seja_abrigo.png" height="64px"/></div>
+    <div id="cartilha4" tappable (click)="backToRoot()">O que não fazer<img src="./assets/img/nao_fazer.png" height="64px"/></div>
 </ion-content>
