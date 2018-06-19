@@ -23,7 +23,6 @@ export class ConferenceData {
         .map(this.processData, this);
     }
   }
-
   processData(data: any) {
     this.data = data.json();
 
@@ -56,104 +55,7 @@ export class ConferenceData {
     });
 
     return this.data;
-  }
-
-  getTimeline(dayIndex: number, queryText = '', excludeTracks: any[] = [], segment = 'all') {
-    return this.load().map((data: any) => {
-      let day = data.schedule[dayIndex];
-      day.shownSessions = 0;
-
-      queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
-      let queryWords = queryText.split(' ').filter(w => !!w.trim().length);
-
-      day.groups.forEach((group: any) => {
-        group.hide = true;
-
-        group.sessions.forEach((session: any) => {
-          this.filterSession(session, queryWords, excludeTracks, segment);
-
-          if (!session.hide) {
-            group.hide = false;
-            day.shownSessions++;
-          }
-        });
-
-      });
-      return day;
-    });
-  }
-
-  getVoluntarioOffers(dayIndex: number, queryText = '', excludeTracks: any[] = [], segment = 'all') {
-    return this.load().map((data: any) => {
-      let day = data.ofertasVoluntario[dayIndex];
-      day.shownSessions = 0;
-
-      queryText = queryText.toLowerCase().replace(/,|\.|-/g, ' ');
-      let queryWords = queryText.split(' ').filter(w => !!w.trim().length);
-
-      day.groups.forEach((group: any) => {
-        group.hide = true;
-
-        group.ofertasVoluntario.forEach((session: any) => {
-          this.filterSession(session, queryWords, excludeTracks, segment);
-
-          if (!session.hide) {
-            group.hide = false;
-            day.shownSessions++;
-          }
-        });
-
-      });
-      return day;
-    });
-  }
-
-  filterSession(session: any, queryWords: string[], excludeTracks: any[], segment: string) {
-
-    let matchesQueryText = false;
-    if (queryWords.length) {
-      queryWords.forEach((queryWord: string) => {
-        if (session.name.toLowerCase().indexOf(queryWord) > -1) {
-          matchesQueryText = true;
-        }
-      });
-    } else {
-      matchesQueryText = true;
-    }
-
-    let matchesTracks = false;
-    session.tracks.forEach((trackName: string) => {
-      if (excludeTracks.indexOf(trackName) === -1) {
-        matchesTracks = true;
-      }
-    });
-
-    let matchesSegment = false;
-    if (segment === 'favorites') {
-      if (this.user.hasFavorite(session.name)) {
-        matchesSegment = true;
-      }
-    } else {
-      matchesSegment = true;
-    }
-    session.hide = !(matchesQueryText && matchesTracks && matchesSegment);
-  }
-
-  getSpeakers() {
-    return this.load().map((data: any) => {
-      return data.speakers.sort((a: any, b: any) => {
-        let aName = a.name.split(' ').pop();
-        let bName = b.name.split(' ').pop();
-        return aName.localeCompare(bName);
-      });
-    });
-  }
-
-  getTracks() {
-    return this.load().map((data: any) => {
-      return data.tracks.sort();
-    });
-  }
+}
 
   getMap() {
     return this.load().map((data: any) => {

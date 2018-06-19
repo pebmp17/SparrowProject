@@ -6,14 +6,12 @@ import { ConferenceApp } from './app.component';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { EmojiProvider } from '../providers/emoji';
 
 import { HttpClientModule } from "@angular/common/http";
 import { HttpModule } from '@angular/http';
 
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
-import { ConferenceData } from '../providers/conference-data';
 import { UserData } from '../providers/user-data';
 
 import { CartilhaPage } from '../pages/cartilha/cartilha';
@@ -23,17 +21,26 @@ import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { MapPage } from '../pages/map/map';
 import { VoluntarioPage } from '../pages/voluntario/voluntario';
-import { ScheduleFilterPage } from '../pages/schedule-filter/schedule-filter';
-import { SessionDetailPage } from '../pages/session-detail/session-detail';
-import { SpeakerDetailPage } from '../pages/speaker-detail/speaker-detail';
 import { HomePage } from '../pages/home/home';
 import { HomeDetalhesPage } from '../pages/home-detalhes/home-detalhes';
+import { CartilhaDetalhesPage } from '../pages/cartilha-detalhes/cartilha-detalhes';
+import { Abrigo_TabsPage } from '../pages/abrigo_tabs-page/abrigo_tabs-page';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
 import { TutorialPage } from '../pages/tutorial/tutorial';
 import { DonatePage } from '../pages/doação/doação';
-import { ConversasPage } from '../pages/conversas/conversas';
-import { Chat } from '../pages/chat/chat';
 import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
+
+import { AbrigoDonatePage } from '../pages/abrigo_donate/abrigo_donate';
+import { AbrigoDonateCreate } from '../pages/abrigo_donateCreate/abrigo_donateCreate';
+import { AbrigoEventCreate } from '../pages/abrigo_eventCreate/abrigo_eventCreate';
+import { AbrigoVoluntarioPage } from '../pages/abrigo_voluntario/abrigo_voluntario';
+import { AbrigoMapPage } from '../pages/abrigo_map/abrigo_map';
+
+
+import { ChatTestPage } from '../pages/chatTest/chatTest';
+import { SigninPage } from '../pages/signin/signin';
+import { RoomPage } from '../pages/room/room';
+import { AddRoomPage } from '../pages/add-room/add-room';
 
 
 @NgModule({
@@ -47,16 +54,22 @@ import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
     MapPage,
     VoluntarioPage,
     DonatePage,
-    ScheduleFilterPage,
-    SessionDetailPage,
-    SpeakerDetailPage,
     HomePage,
     HomeDetalhesPage,
+    CartilhaDetalhesPage,
     TabsPage,
+    Abrigo_TabsPage,
+    AbrigoDonatePage,
+    AbrigoDonateCreate,
+    AbrigoEventCreate,
+    AbrigoVoluntarioPage,
+    AbrigoMapPage,
     TutorialPage,
-    ConversasPage,
     NotificacoesPage,
-    Chat
+    ChatTestPage,
+    SigninPage,
+    RoomPage,
+    AddRoomPage
   ],
   imports: [
     BrowserModule,
@@ -65,24 +78,25 @@ import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
     IonicModule.forRoot(ConferenceApp, {}, {
       links: [
         { component: TabsPage, name: 'TabsPage', segment: 'tabs-page' },
+        { component: Abrigo_TabsPage, name: 'Abrigo_TabsPage', segment: 'abrigo_tabs-page' },
         { component: VoluntarioPage, name: 'Voluntário', segment: 'voluntario' },
-        { component: SessionDetailPage, name: 'SessionDetail', segment: 'sessionDetail/:sessionId' },
-        { component: ScheduleFilterPage, name: 'ScheduleFilter', segment: 'scheduleFilter' },
         { component: HomePage, name: 'HomePage', segment: 'HomePage' },
         { component: HomeDetalhesPage, name: 'HomeDetalhesPage', segment: 'HomeDetalhesPage' },
-        { component: SpeakerDetailPage, name: 'SpeakerDetail', segment: 'speakerDetail/:speakerId' },
+        { component: AbrigoDonateCreate, name: 'AbrigoDonateCreate', segment: 'AbrigoDonateCreate' },
+        { component: AbrigoEventCreate, name: 'AbrigoEventCreate', segment: 'AbrigoEventCreate' },
         { component: MapPage, name: 'Pontos de coleta', segment: 'map' },
         { component: CartilhaPage, name: 'CartilhaPage', segment: 'cartilha' },
+        { component: CartilhaDetalhesPage, name: 'CartilhaDetalhesPage', segment: 'CartilhaDetalhesPage' },
         { component: TutorialPage, name: 'Tutorial', segment: 'tutorial' },
-        { component: ConversasPage, name: 'ConversasPage', segment: 'conversas' },
         { component: LoginPage, name: 'LoginPage', segment: 'login' },
         { component: AccountPage, name: 'AccountPage', segment: 'account' },
-        { component: ConversasPage, name: 'Conversas', segment: 'conversas' },
-        { component: Chat, name: 'Chat', segment: 'chat' },
         { component: NotificacoesPage, name: 'NotificacoesPage', segment: 'notificacoes' },
         { component: SobrePage, name: 'SobrePage', segment: 'sobre' },
-        { component: ContatoPage, name: 'ContatoPage', segment: 'contato' }
-
+        { component: ContatoPage, name: 'ContatoPage', segment: 'contato' },
+        { component: ChatTestPage, name: 'ChatTestPage', segment: 'chatTest' },
+        { component: SigninPage, name: 'SigninPage', segment: 'SigninPage' },
+        { component: RoomPage, name: 'RoomPage', segment: 'room' },
+        { component: AddRoomPage, name: 'AddRoomPage', segment: 'addroom' }
       ]
     }
     ),
@@ -97,21 +111,26 @@ import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
     MapPage,
     VoluntarioPage,
     DonatePage,
-    ScheduleFilterPage,
-    SessionDetailPage,
-    SpeakerDetailPage,
     HomePage,
     HomeDetalhesPage,
+    CartilhaDetalhesPage,
+    Abrigo_TabsPage,
+    AbrigoDonatePage,
+    AbrigoDonateCreate,
+    AbrigoEventCreate,
+    AbrigoVoluntarioPage,
+    AbrigoMapPage,
     TabsPage,
     TutorialPage,
-    ConversasPage,
     NotificacoesPage,
     SobrePage,
     ContatoPage,
-    Chat
+    ChatTestPage,
+    SigninPage,
+    RoomPage,
+    AddRoomPage  
   ],
   providers: [
-    ConferenceData,
     UserData,
     StatusBar,
     SplashScreen,
@@ -119,7 +138,6 @@ import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
     HttpModule,
     HttpClientModule,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    EmojiProvider,
     
   ]
 })

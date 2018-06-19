@@ -2,54 +2,43 @@ import { Injectable } from '@angular/core';
 
 import { Events } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import * as firebase from 'firebase';
+
 
 
 @Injectable()
 export class UserData {
-  _favorites: string[] = [];
   HAS_LOGGED_IN = 'hasLoggedIn';
   HAS_SEEN_TUTORIAL = 'hasSeenTutorial';
 
   constructor(
     public events: Events,
     public storage: Storage
-  ) {}
+    ) {}
 
-  hasFavorite(sessionName: string): boolean {
-    return (this._favorites.indexOf(sessionName) > -1);
-  };
 
-  addFavorite(sessionName: string): void {
-    this._favorites.push(sessionName);
-  };
-
-  removeFavorite(sessionName: string): void {
-    let index = this._favorites.indexOf(sessionName);
-    if (index > -1) {
-      this._favorites.splice(index, 1);
-    }
-  };
-
-  login(username: string): void {
+  login(username: string, type:string): void {
     this.storage.set(this.HAS_LOGGED_IN, true);
-    this.setUsername(username);
+    this.setUsername(username, type);
     this.events.publish('user:login');
   };
 
-  signup(username: string): void {
+  signup(username: string, type:string): void {
     this.storage.set(this.HAS_LOGGED_IN, true);
-    this.setUsername(username);
+    this.setUsername(username, type);
     this.events.publish('user:signup');
   };
 
   logout(): void {
+    firebase.auth().signOut();
     this.storage.remove(this.HAS_LOGGED_IN);
     this.storage.remove('username');
     this.events.publish('user:logout');
   };
 
-  setUsername(username: string): void {
+  setUsername(username: string, type:string ): void {
     this.storage.set('username', username);
+    this.storage.set('type', type);
   };
 
   getUsername(): Promise<string> {
@@ -61,12 +50,6 @@ export class UserData {
   hasLoggedIn(): Promise<boolean> {
     return this.storage.get(this.HAS_LOGGED_IN).then((value) => {
       return value === true;
-    });
-  };
-
-  checkHasSeenTutorial(): Promise<string> {
-    return this.storage.get(this.HAS_SEEN_TUTORIAL).then((value) => {
-      return value;
     });
   };
 }

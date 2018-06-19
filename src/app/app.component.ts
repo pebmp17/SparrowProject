@@ -9,13 +9,15 @@ import { SobrePage } from '../pages/sobre/sobre';
 import { AccountPage } from '../pages/account/account';
 import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs-page/tabs-page';
-import { TutorialPage } from '../pages/tutorial/tutorial';
-import { ConversasPage } from '../pages/conversas/conversas';
-import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
-import { ContatoPage } from '../pages/contato/contato';
-import { Chat } from '../pages/chat/chat';
+import { Abrigo_TabsPage } from '../pages/abrigo_tabs-page/abrigo_tabs-page';
 
-import { ConferenceData } from '../providers/conference-data';
+import { NotificacoesPage } from '../pages/notificacoes/notificacoes';
+import { RoomPage } from '../pages/room/room';
+
+import { ContatoPage } from '../pages/contato/contato';
+
+import * as firebase from 'firebase';
+
 import { UserData } from '../providers/user-data';
 
 export interface PageInterface {
@@ -29,61 +31,81 @@ export interface PageInterface {
   tabComponent?: any;
 }
 
+const config = {
+  apiKey: 'AIzaSyA_uvBzMx3r_DHSwz31Hh1aj6aMpNSgXqY',
+  authDomain: 'sparrowproject-a11a8.firebaseapp.com',
+  databaseURL: 'https://sparrowproject-a11a8.firebaseio.com',
+  projectId: 'sparrowproject-a11a8',
+  storageBucket: 'sparrowproject-a11a8.appspot.com',
+};
+
 @Component({
   templateUrl: 'app.template.html'
   
 })
 export class ConferenceApp {
-  // the root nav is a child of the root app component
-  // @ViewChild(Nav) gets a reference to the app's root nav
   @ViewChild(Nav) nav: Nav;
 
   appPages: PageInterface[] = [
-    { title: 'Entre em contato', name: 'ContatoPage', component: ContatoPage, icon: 'at' },
-    { title: 'Sobre', name: 'SobrePage', component: SobrePage, icon: 'ribbon' },
+  { title: 'Entre em contato', name: 'ContatoPage', component: ContatoPage, icon: 'at' },
+  { title: 'Sobre', name: 'SobrePage', component: SobrePage, icon: 'ribbon' },
   ];
 
   loggedInPages: PageInterface[] = [
-    { title: 'Conta', name: 'AccountPage', component: AccountPage, icon: 'person' },
-    { title: 'Conversas', name: 'ConversasPage', component: ConversasPage, icon: 'chatbubbles' },
-    { title: 'Notificações', name: 'NotificacoesPage', component: NotificacoesPage, icon: 'notifications' },
-    { title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true }
+  { title: 'Conta', name: 'AccountPage', component: AccountPage, icon: 'person' },
+  { title: 'Conversas', name: 'RoomPage', component: RoomPage, icon: 'chatbubbles' },
+  { title: 'Notificações', name: 'NotificacoesPage', component: NotificacoesPage, icon: 'notifications' },
+  { title: 'Logout', name: 'TabsPage', component: TabsPage, icon: 'log-out', logsOut: true }
   ];
   loggedOutPages: PageInterface[] = [
-    { title: 'Logar/Cadastrar', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
+  { title: 'Logar/Cadastrar', name: 'LoginPage', component: LoginPage, icon: 'log-in' },
   ];
 
   rootPage: any;
   username: string;
+  userAvatar: string;
 
   constructor(
     public events: Events,
     public userData: UserData,
     public menu: MenuController,
     public platform: Platform,
-    public confData: ConferenceData,
     public storage: Storage,
     public splashScreen: SplashScreen
-  ) {
-
-    this.storage.get('hasSeenTutorial')
-      .then((hasSeenTutorial) => {
-        if (hasSeenTutorial) {
-          this.rootPage = TabsPage;
-        } else {
-          this.rootPage = LoginPage;
-        }
-        this.platformReady()
-      });
-
-    confData.load();
-
+    ) {
+    this.rootPage = LoginPage;
+    this.platformReady()
     this.userData.hasLoggedIn().then((hasLoggedIn) => {
       this.enableMenu(hasLoggedIn === true);
     });
     this.enableMenu(true);
 
     this.listenToLoginEvents();
+    firebase.initializeApp(config);
+  }
+
+  ngAfterViewInit() {
+    this.getUsername();
+    this.getAvatar();
+    console.log(this.userAvatar);
+  }
+
+  getUsername() {
+    var user = firebase.auth().currentUser;
+    if (user) {
+      if(user != null){
+        this.username = user.email;
+      }
+    };
+  }
+
+  getAvatar() {
+    var user = firebase.auth().currentUser;
+    if (user) {
+      if(user != null){
+        this.userAvatar = user.photoURL;
+      }
+    };
   }
 
   openPage(page: PageInterface) {
@@ -106,10 +128,6 @@ export class ConferenceApp {
     }
   }
 
-  openTutorial() {
-    this.nav.setRoot(TutorialPage);
-  }
-
   listenToLoginEvents() {
     this.events.subscribe('user:login', () => {
       this.enableMenu(true);
@@ -129,8 +147,8 @@ export class ConferenceApp {
     this.menu.enable(!loggedIn, 'loggedOutMenu');
   }
 
+
   platformReady() {
-    // Call any initial plugins when ready
     this.platform.ready().then(() => {
       this.splashScreen.hide();
     });
@@ -150,4 +168,6 @@ export class ConferenceApp {
     }
     return;
   }
+
 }
+
