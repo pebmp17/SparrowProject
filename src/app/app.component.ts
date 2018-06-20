@@ -19,6 +19,8 @@ import { ContatoPage } from '../pages/contato/contato';
 import * as firebase from 'firebase';
 
 import { UserData } from '../providers/user-data';
+import { ConferenceData } from '../providers/conference-data';
+
 
 export interface PageInterface {
   title: string;
@@ -70,6 +72,7 @@ export class ConferenceApp {
     public userData: UserData,
     public menu: MenuController,
     public platform: Platform,
+    public confData: ConferenceData,
     public storage: Storage,
     public splashScreen: SplashScreen
     ) {
@@ -79,7 +82,7 @@ export class ConferenceApp {
       this.enableMenu(hasLoggedIn === true);
     });
     this.enableMenu(true);
-
+    confData.load();
     this.listenToLoginEvents();
     firebase.initializeApp(config);
   }
@@ -89,6 +92,7 @@ export class ConferenceApp {
     this.getAvatar();
     console.log(this.userAvatar);
   }
+  
 
   getUsername() {
     var user = firebase.auth().currentUser;

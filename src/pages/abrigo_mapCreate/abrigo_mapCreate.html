@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-navbar color="secondary">
+    <ion-title>Cadastre o seu ponto de coleta</ion-title>
+    <button ion-button menuToggle end>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding-left padding right>
+  <ion-list>
+    <ion-label>Nome do estabelecimento</ion-label>    
+    <ion-item>
+      <ion-input [(ngModel)]="pedidoMapa.titulo" name="pedidoTitulo" type="text" #pedidoTitulo="ngModel"required></ion-input>
+    </ion-item>
+    <ion-label>Descrição do que pode ser recebido</ion-label>
+    <ion-item>
+      <ion-textarea [(ngModel)]="pedidoMapa.descricao" name="pedidoDescricao" #pedidoDescricaosupportQuestion="ngModel" rows="2" required class="someDesgraça"></ion-textarea>
+    </ion-item>
+      <ion-label style="color: black">Horário de funcionamento</ion-label>
+    <ion-item>
+      <ion-label style="color: black">De</ion-label>
+      <ion-input [(ngModel)]="pedidoMapa.horarioInicio" name="pedidoInicio" type="text" #pedidoInicio="ngModel"required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label style="color: black">até </ion-label>
+      <ion-input [(ngModel)]="pedidoMapa.horarioFim" name="pedidoFim" type="text" #pedidoFim="ngModel"required></ion-input>
+    </ion-item>
+     <ion-label style="color: black">Localização</ion-label>
+    <ion-item>
+      <ion-label style="color: black">Latitude</ion-label>
+      <ion-input [(ngModel)]="pedidoMapa.lat" name="lat" type="text" #lat="ngModel"required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label style="color: black">Longitude</ion-label>
+      <ion-input [(ngModel)]="pedidoMapa.long" name="long" type="text" #long="ngModel"required></ion-input>
+    </ion-item>
+    <button ion-button full round color="danger" (click)="confirmRequest()">Confirmar</button> 
+  </ion-list>
+</ion-content>

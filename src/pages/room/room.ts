@@ -23,7 +23,7 @@ export class RoomPage {
   }
   
   backToRoot() {
-    this.navCtrl.setRoot('TabsPage')
+    this.navCtrl.setRoot('Abrigo_TabsPage')
   }
   addRoom() {
     this.navCtrl.push(AddRoomPage);

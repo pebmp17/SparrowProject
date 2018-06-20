@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { NavParams } from 'ionic-angular';
 
 import { CartilhaPage } from '../cartilha/cartilha';
-import { AbrigoMapPage } from '../abrigo_map/abrigo_map';
+import { MapPage } from '../map/map';
 import { AbrigoVoluntarioPage } from '../abrigo_voluntario/abrigo_voluntario';
 import { HomePage } from '../home/home';
 import { AbrigoDonatePage } from '../abrigo_donate/abrigo_donate';
@@ -16,7 +16,7 @@ export class Abrigo_TabsPage {
   tab1Root: any = HomePage;
   tab2Root: any = AbrigoVoluntarioPage;
   tab3Root: any = AbrigoDonatePage;
-  tab4Root: any = AbrigoMapPage;
+  tab4Root: any = MapPage;
   tab5Root: any = CartilhaPage;
   mySelectedIndex: number;
 

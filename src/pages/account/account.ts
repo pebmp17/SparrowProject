@@ -23,7 +23,7 @@ export class AccountPage {
   }
   
   backToRoot() {
-    this.nav.setRoot('TabsPage')
+    this.nav.setRoot('Abrigo_TabsPage')
   }
 
   ngAfterViewInit() {

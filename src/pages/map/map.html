@@ -13,21 +13,23 @@
 		<ion-icon name=information-circle item-start></ion-icon>
 		Postos de doação
 	</ion-item-divider>
-	<ion-list padding-left padding-right>
-		<ion-item no-lines (click)="showDiv()" color="secondary" class="roundCoisa">
-			<ion-avatar style="float: left">
-				<img src="../assets/img/plaquinha.png">
-			</ion-avatar>
-			<ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
-			<div style="float: left;padding-top: 15;">Petshop para pets</div><br>
-			<p>Funciona das 08 às 20 horas</p>
-			<div class="info" text-wrap id="myDIV">
-				<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis metus leo, auctor eget ullamcorper at, maximus et nisi. i</div>
-				<ion-avatar style="float: left">
-					<img src="../assets/img/sãolazaro.jpg">
-				</ion-avatar>
-				<h4 class="abrigoNome">Abrigo Auau</h4>
-			</div>
-		</ion-item>
-	</ion-list>
+	<ion-list padding-left padding-right *ngFor="let postos of requests">
+  <ion-item no-lines color="secondary" class="roundCoisa">
+    <ion-icon name="calendar" style="float: left"></ion-icon>
+    <ion-icon name="arrow-dropdown" style="float: right"></ion-icon>
+    <div class="eventTitle">{{postos.titulo}}</div><br>
+    <p>Das {{postos.horarioInicio}} às {{postos.horarioFim}} horas</p>
+    <div class="info" text-wrap id="myDIV">
+      <div>{{postos.descricao}}</div>
+      <ion-avatar style="float: left">
+        <img src="{{postos.avatar}}">
+      </ion-avatar>
+      <h4 class="abrigoNome">{{postos.createdBy}}</h4>
+      <button ion-button full round color="danger">Editar</button> 
+    </div>
+  </ion-item>
+</ion-list>
+<ion-fab bottom right>
+   <button ion-fab color="danger" (click)="goToCreate()"><ion-icon name="add"></ion-icon></button>
+ </ion-fab>
 </ion-content>

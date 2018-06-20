@@ -13,6 +13,8 @@ import { HttpModule } from '@angular/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { IonicStorageModule } from '@ionic/storage';
 import { UserData } from '../providers/user-data';
+import { ConferenceData } from '../providers/conference-data';
+
 
 import { CartilhaPage } from '../pages/cartilha/cartilha';
 import { SobrePage } from '../pages/sobre/sobre';
@@ -35,6 +37,7 @@ import { AbrigoDonateCreate } from '../pages/abrigo_donateCreate/abrigo_donateCr
 import { AbrigoEventCreate } from '../pages/abrigo_eventCreate/abrigo_eventCreate';
 import { AbrigoVoluntarioPage } from '../pages/abrigo_voluntario/abrigo_voluntario';
 import { AbrigoMapPage } from '../pages/abrigo_map/abrigo_map';
+import { AbrigoMapCreate } from '../pages/abrigo_mapCreate/abrigo_mapCreate';
 
 
 import { ChatTestPage } from '../pages/chatTest/chatTest';
@@ -64,6 +67,7 @@ import { AddRoomPage } from '../pages/add-room/add-room';
     AbrigoEventCreate,
     AbrigoVoluntarioPage,
     AbrigoMapPage,
+    AbrigoMapCreate,
     TutorialPage,
     NotificacoesPage,
     ChatTestPage,
@@ -84,6 +88,7 @@ import { AddRoomPage } from '../pages/add-room/add-room';
         { component: HomeDetalhesPage, name: 'HomeDetalhesPage', segment: 'HomeDetalhesPage' },
         { component: AbrigoDonateCreate, name: 'AbrigoDonateCreate', segment: 'AbrigoDonateCreate' },
         { component: AbrigoEventCreate, name: 'AbrigoEventCreate', segment: 'AbrigoEventCreate' },
+        { component: AbrigoMapCreate, name: 'AbrigoMapCreate', segment: 'AbrigoMapCreate' },
         { component: MapPage, name: 'Pontos de coleta', segment: 'map' },
         { component: CartilhaPage, name: 'CartilhaPage', segment: 'cartilha' },
         { component: CartilhaDetalhesPage, name: 'CartilhaDetalhesPage', segment: 'CartilhaDetalhesPage' },
@@ -120,6 +125,7 @@ import { AddRoomPage } from '../pages/add-room/add-room';
     AbrigoEventCreate,
     AbrigoVoluntarioPage,
     AbrigoMapPage,
+    AbrigoMapCreate,
     TabsPage,
     TutorialPage,
     NotificacoesPage,
@@ -132,6 +138,7 @@ import { AddRoomPage } from '../pages/add-room/add-room';
   ],
   providers: [
     UserData,
+    ConferenceData,
     StatusBar,
     SplashScreen,
     InAppBrowser,

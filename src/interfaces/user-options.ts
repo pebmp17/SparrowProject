@@ -17,3 +17,12 @@ export interface EventoPedidos {
   horarioInicio: string,
   horarioFim: string
 }
+
+export interface MapaPedidos {
+  titulo:string,
+  descricao: string,
+  lat: string,
+  long: string,
+  horarioInicio: string,
+  horarioFim: string
+}

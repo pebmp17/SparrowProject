@@ -15,6 +15,6 @@ export class SobrePage {
 
 
   backToRoot() {
-    this.nav.setRoot('TabsPage')
+    this.nav.setRoot('Abrigo_TabsPage')
   }  
 }
