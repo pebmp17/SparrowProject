@@ -1,0 +1,114 @@
+{
+	"ofertasVoluntario": [{
+		"nome": "Cãominhada",
+		"localizacao": "Room 2201",
+		"descricao": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
+		"abrigoResponsavel": ["Ted Turtle"],
+		"data": "12/08/2018",
+		"timeStart": "3:00 pm",
+		"timeEnd": "3:30 pm",
+		"id": "1"
+	}, {
+		"nome": "Mobile States",
+		"localizacao": "Room 2202",
+		"descricao": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
+		"abrigoResponsavel": ["Rachel Rabbit"],
+		"timeStart": "3:30 pm",
+		"timeEnd": "3:45 pm",
+		"id": "2"
+	}],
+
+	"ofertasDonate": [{
+		"nome": "Cãominhada",
+		"localizacao": "Room 2201",
+		"descricao": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
+		"abrigo": ["Ted Turtle"],
+		"data": "12/08/2018",
+		"categoria": ["food", "all"],
+		"id": "1"
+	},{
+		"name": "Mobile eStatos",
+		"localizacao": "Room 2203",
+		"descricao": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
+		"abrigo": ["Burt Bear"],
+		"data": "12/08/2018",
+		"categoria": ["medkit", "all"],
+		"id": "2"
+	},
+	{
+		"name": "Mobile States",
+		"localizacao": "Room 2202",
+		"descricao": "Mobile devices and browsers are now advanced enough that developers can build native-quality mobile apps using open web technologies like HTML5, Javascript, and CSS. In this talk, we’ll provide background on why and how we created Ionic, the design decisions made as we integrated Ionic with Angular, and the performance considerations for mobile platforms that our team had to overcome. We’ll also review new and upcoming Ionic features, and talk about the hidden powers and benefits of combining mobile app development and Angular.",
+		"abrigo": ["Rachel Rabbit"],
+		"data": "12/08/2018",
+		"categoria": ["medkit", "all"],
+		"id": "3"
+	},
+],
+
+	"abrigosList": [{
+		"nome": "Burt Bear",
+		"profilePic": "assets/img/speakers/bear.jpg",
+		"sobre": "Burt is a Bear.",
+		"email": "burt@example.com",
+		"phone": "+1-541-754-3010",
+		"id": "1"
+	}, {
+		"nome": "Charlie Cheetah",
+		"profilePic": "assets/img/speakers/cheetah.jpg",
+		"sobre": "Charlie is a Cheetah.",
+		"email": "charlie@example.com",
+		"phone": "+1-541-754-3010",
+		"id": "2"
+	}, {
+		"nome": "Donald Duck",
+		"profilePic": "assets/img/speakers/duck.jpg",
+		"sobre": "Donald is a Duck.",
+		"email": "donald@example.com",
+		"phone": "+1-541-754-3010",
+		"id": "3"
+	}, {
+		"nome": "Eva Eagle",
+		"profilePic": "assets/img/speakers/eagle.jpg",
+		"sobre": "Eva is an Eagle.",
+		"email": "eva@example.com",
+		"phone": "+1-541-754-3010",
+		"id": "4"
+	}, {
+		"nome": "Ellie Elephant",
+		"profilePic": "assets/img/speakers/elephant.jpg",
+		"sobre": "Ellie is an Elephant.",
+		"location": "Everywhere",
+		"email": "ellie@example.com",
+		"phone": "+1-541-754-3010",
+		"id": "5"
+	}, {
+		"nome": "Gino Giraffe",
+		"profilePic": "assets/img/speakers/giraffe.jpg",
+		"about": "Gino is a Giraffe.",
+		"email": "gino@example.com",
+		"phone": "+1-541-754-3010",
+		"id": "6"
+	}, {
+		"nome": "Isabella Iguana",
+		"profilePic": "assets/img/speakers/iguana.jpg",
+		"sobre": "Isabella is an Iguana.",
+		"email": "isabella@example.com",
+		"phone": "+1-541-754-3010",
+		"id": "7"
+	}, {
+		"nome": "Karl Kitten",
+		"profilePic": "assets/img/speakers/kitten.jpg",
+		"sobre": "Karl is a Kitten.",
+		"email": "karl@example.com",
+		"phone": "+1-541-754-3010",
+		"id": "8"
+	}, {
+		"nome": "Lionel Lion",
+		"profilePic": "assets/img/speakers/lion.jpg",
+		"about": "Lionel is a Lion.",
+		"email": "lionel@example.com",
+		"phone": "+1-541-754-3010",
+		"id": "9"
+	}]
+}
